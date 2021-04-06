@@ -11,11 +11,15 @@
 
 package edu.coursework.sportinfrastructure.controller.ui;
 
+import edu.coursework.sportinfrastructure.model.Stadium;
 import edu.coursework.sportinfrastructure.service.stadium.impls.StadiumServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("/ui/stadiums")
 @Controller
@@ -25,8 +29,50 @@ public class StadiumUiController {
     StadiumServiceImpl service;
 
     @RequestMapping("/get/all")
-    public String showAll(){
+    public String showAll(Model model){
+        List<Stadium> stadiums = service.getAll();
+        model.addAttribute("stadiums",stadiums);
+        return "stadium-page";
+    }
 
-        return "";
+    @GetMapping("/showNewStadiumForm")
+    public String showNewStadiumForm(Model model) {
+        // create model attribute to bind form data
+        Stadium stadium = new Stadium();
+        model.addAttribute("stadiums", stadium);
+        return "new_stadium";
+    }
+
+    @PostMapping("/addStadium")
+    public String addStadium(Model model, @ModelAttribute("employee") @RequestBody Stadium stadium) {
+        String address = stadium.getAddress();
+        List<Stadium> stadiums = service.getAll();
+
+        if (address != null && address.length() > 0) {
+            service.getAll().add(stadium);
+            model.addAttribute("stadiums",stadiums);
+            return "redirect:/ui/stadiums/get/all";
+        }
+        return "new_stadium";
+    }
+    @GetMapping("/showUpdateForm/{id}")
+    public String showUpdateForm(@PathVariable (value="id") String id, Model model){
+        Stadium stadium = service.getById(id);
+        model.addAttribute("stadiums",stadium);
+        return "update_stadium";
+    }
+    @PostMapping("/updateStadium")
+    public String updateStadium(Model model, @ModelAttribute("employee") @RequestBody Stadium stadium) {
+
+        service.update(stadium);
+        return "redirect:/ui/stadiums/get/all";
+    }
+    @GetMapping("/deleteStadium/{id}")
+    public String deleteEmployee(@PathVariable (value = "id") String id) {
+
+        // call delete employee method
+        this.service.delete(id);
+        return "redirect:/ui/stadiums/get/all";
     }
 }
+

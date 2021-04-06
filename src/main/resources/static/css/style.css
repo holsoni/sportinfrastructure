@@ -1,0 +1,253 @@
+/*
+ * *
+ *  * Created by IntelliJ IDEA.
+ *  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/static/css/style.css
+ *  *
+ *  * @Autor: SoniaKK
+ *  * @DateTime: 06.04.21, 19:01
+ *  * @Version style.css : 1.0
+ *
+ */
+.h1{
+   font-size:5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    top:5%;
+    left:48%;
+    transform:translate(-50%, -50%);
+    padding:5rem 10rem;
+}
+html{
+    font-size:14px;
+    font-family: "Montserrat ExtraLight", Arial,sans-serif;
+}
+body{
+    display:flex;
+    width:100%;
+    background: linear-gradient(-45deg, #ea9e64, #de2f72, #1d79b7, #23d5ab);
+    background-size: 400%,400%;
+    position: relative;
+    animation:change 10s ease-in-out infinite;
+}
+@keyframes change{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+.text{
+    writing-mode: vertical-rl;
+    font-size: 90px;
+    transform: rotate(180deg);
+    margin: 10px 20px 120px 20px;
+    margin: 120px 10px 120px 50px;
+    position: absolute;
+}
+
+
+table {
+
+    width: 1150px;
+    border-collapse: collapse;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow:  9px 9px 30px,
+    -9px -9px 30px;
+    margin: 100px 209px;
+    position: absolute;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+th,
+td {
+    padding: 15px;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+th:nth-child(8){
+padding:0px;}
+td:nth-child(1){
+    background-color: rgba(48, 47, 47, 0.53);
+    font-weight: bolder;
+    padding-left: 20px;
+}
+td:nth-child(2){
+    width:30%;
+}
+td:nth-child(3){
+    width:30%;
+}
+
+thead th {
+    background-color: rgba(48, 47, 47, 0.6);
+    font-size: 20px;
+    box-shadow: 0px 3px 1px #838282 ;
+    font-family: "Montserrat ExtraLight", Arial,sans-serif;
+    font-weight: bold;
+}
+
+tbody tr:hover{
+     background-color: rgba(255,255,255,0.6);
+ }
+td:last-child:hover{
+    background-color: rgba(255, 255, 255, 0.0);
+
+}
+tbody td {
+    background-color: rgba(48, 47, 47, 0.4);
+    position: relative;
+    border-bottom: 1px solid rgba(48, 47, 47, 0.6);
+    border-right: 1px solid rgba(48, 47, 47, 0.45);
+}
+tbody td:hover::before{
+     content: "";
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: -9999px;
+     bottom: -9999px;
+     background-color: rgba(255,255,255,0.2);
+     z-index: -1;
+ }
+.add{
+    position: absolute;
+    border: 1px solid #434343;
+    border-radius: 100%;
+    line-height: 20px;
+    height:45px;
+    width:70px;
+    margin: 50px 71px;
+    font-size: 90px;
+    font-weight: bolder;
+    text-align: center;
+background-color: rgba(48, 47, 47, 0.6);
+    color: #fff;
+    padding-top: 19px;
+    text-decoration: none;
+}
+
+a{
+    width: 20px;
+    height: 20px;
+    color:white;
+}
+a:active{
+    color: white;
+}
+a:visited{
+    color:white;
+}
+.updateForm{
+    background-color: rgba(49,49,49,0.2);
+    color:gray;
+    height: 420px;
+    width: 400px;
+    padding: 40px;
+    padding: 60px;
+    margin-left: 350px;
+    border-radius: 10px;
+}
+.updateForm input[type=text]{
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-left: -10px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(244,244,244,0.8);
+    font-size: 17px;
+}
+.updateForm input[type=number]{
+    width: 70px;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(244,244,244,0.8);
+    font-size: 17px;
+    margin-left: -5px;
+}
+
+.updateText{
+    background-color: rgba(48, 47, 47, 0.3);
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Montserrat ExtraLight", Arial,sans-serif;
+    font-weight: bolder;
+}
+label{
+    color: white;
+    font-size: 16px;
+    padding-right: 10px;
+    padding-left: 10px;}
+.btn1{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 15px;
+    margin-top: 60px;
+    margin-left: -40px;
+    position: absolute;
+
+}
+
+.addForm{
+    background-color: rgba(49,49,49,0.2);
+    color:gray;
+    height: 530px;
+    width: 400px;
+    padding: 40px 60px 60px 60px;
+    margin-left: 350px;
+    border-radius: 10px;
+}
+.addForm input[type=text]{
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-left: -10px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(244,244,244,0.8);
+    font-size: 17px;
+}
+.addForm input[type=number]{
+    width: 70px;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(244,244,244,0.8);
+    font-size: 17px;
+    margin-left: 17px;
+}
+.btn2{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 15px;
+    margin-top: 60px;
+    margin-left: -40px;
+    position: absolute;
+    margin-left: -140px;
+}
+.number{
+    margin-left: 20px;
+}
+.addText{
+    font-family: "Montserrat ExtraLight", Arial,sans-serif;
+    writing-mode: vertical-rl;
+    font-size: 90px;
+    transform: rotate(180deg);
+    margin: 160px 10px 120px 50px;
+    position: absolute;
+}

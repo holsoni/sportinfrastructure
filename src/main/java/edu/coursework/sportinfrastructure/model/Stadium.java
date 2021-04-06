@@ -13,11 +13,16 @@ package edu.coursework.sportinfrastructure.model;
 
 import lombok.Data;
 import lombok.NonNull;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@Document(collection = "stadium")
+
 public class Stadium {
     private String Id;
     private String name;
@@ -32,16 +37,19 @@ public class Stadium {
     public Stadium() {
     }
 
-    public Stadium(String name, String address, int capacity, int amountOfTracks, int length, String trackCoating) {
+    public Stadium(String name, String address, int capacity, int amountOfTracks, int length, String trackCoating, LocalDateTime created_at, LocalDateTime modified_at) {
         this.name = name;
         this.address = address;
         this.capacity = capacity;
         this.amountOfTracks = amountOfTracks;
         this.length = length;
         this.trackCoating = trackCoating;
+        this.created_at = created_at;
+        this.modified_at = modified_at;
     }
 
-    public Stadium(String id, String name, String address, int capacity, int amountOfTracks, int length, String trackCoating) {
+
+    public Stadium(String id, String name, String address, int capacity, int amountOfTracks, int length, String trackCoating, LocalDateTime created_at, LocalDateTime modified_at) {
         Id = id;
         this.name = name;
         this.address = address;
@@ -49,5 +57,7 @@ public class Stadium {
         this.amountOfTracks = amountOfTracks;
         this.length = length;
         this.trackCoating = trackCoating;
+        this.created_at = created_at;
+        this.modified_at = modified_at;
     }
 }

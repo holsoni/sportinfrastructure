@@ -10,6 +10,7 @@ public interface IStadiumService {
     Stadium create(Stadium stadium);
     Stadium update(Stadium stadium);
     Stadium delete(String id);
+    Stadium save(Stadium stadium);
     List<Stadium> getAll();
 }
 

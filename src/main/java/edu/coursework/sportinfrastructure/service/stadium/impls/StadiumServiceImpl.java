@@ -39,6 +39,11 @@ public class StadiumServiceImpl implements IStadiumService {
     }
 
     @Override
+    public Stadium save(Stadium stadium) {
+        return null;
+    }
+
+    @Override
     public List<Stadium> getAll() {
         return dao.getAll();
     }

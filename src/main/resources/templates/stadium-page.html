@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</head>
+<body>
+<div class="text">
+    STADIUMS
+</div>
+<div >
+    <a class="add" th:href = "@{/ui/stadiums/showNewStadiumForm}"> +</a>
+</div>
+
+<div  ><table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Adress</th>
+            <th>Capacity</th>
+            <th>Tracks</th>
+            <th>Length</th>
+            <th>Created at</th>
+            <th>Modified at</th>
+            <th>OPTIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="stadium: ${stadiums}">
+            <td th:text="${stadium.id}"></td>
+            <td th:text="${stadium.name}"></td>
+            <td th:text="${stadium.address}"></td>
+            <td th:text="${stadium.capacity}"></td>
+            <td th:text="${stadium.amountOfTracks}"></td>
+            <td th:text="${stadium.length}"></td>
+            <td th:text="${stadium.created_at}"></td>
+            <td th:text="${stadium.modified_at}"></td>
+            <td> <a th:href="@{/ui/stadiums/showUpdateForm/{id}(id=${stadium.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
+                <a th:href="@{/ui/stadiums/deleteStadium/{id}(id=${stadium.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br><br><br><br><br>
+</body>
+
+</html>

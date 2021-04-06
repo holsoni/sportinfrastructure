@@ -15,6 +15,7 @@ import edu.coursework.sportinfrastructure.model.Stadium;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -37,15 +38,24 @@ public class StadiumDaoImpl implements IStadiumDao {
                 .mapToInt(el->Integer.parseInt(el.getId()))
                 .max().orElse(0)+1);
         stadium.setId(id);
+        stadium.setCreated_at(LocalDateTime.now());
+        stadium.setModified_at(LocalDateTime.now());
         this.getAll().add(stadium);
         return stadium;
     }
 
     @Override
     public Stadium update(Stadium stadium) {
-        this.delete(stadium.getId());
-        this.getAll().add(stadium);
-        return stadium;
+        Stadium updatedStadium = this.getById(stadium.getId());
+        updatedStadium.setName(stadium.getName());
+        updatedStadium.setAddress(stadium.getAddress());
+        updatedStadium.setCapacity(stadium.getCapacity());
+        updatedStadium.setAmountOfTracks(stadium.getAmountOfTracks());
+        updatedStadium.setLength(stadium.getLength());
+        updatedStadium.setModified_at(LocalDateTime.now());
+
+        return updatedStadium;
+
     }
 
     @Override
@@ -56,7 +66,12 @@ public class StadiumDaoImpl implements IStadiumDao {
     }
 
     @Override
+    public Stadium save(Stadium stadium) {
+        return null;
+    }
+
+    @Override
     public List<Stadium> getAll() {
-        return fakeData.getAll();
+        return fakeData.getStadiums();
     }
 }
