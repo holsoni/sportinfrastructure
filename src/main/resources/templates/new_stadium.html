@@ -34,25 +34,26 @@
     <form action="#" th:action="@{/ui/stadiums/addStadium}" th:object="${stadiums}"
           method="POST">
         <label>ID</label>
-        <input type="text" th:field="*{id}" placeholder=" ID" >
+        <input type="text" th:field="*{id}" placeholder=" ID" required >
         <label>Name</label>
-        <input type="text" th:field="*{name}" placeholder=" Name" >
+        <input type="text" th:field="*{name}" placeholder=" Name" required>
         <label>Adress</label>
-        <input type="text" th:field="*{address}" placeholder="Address" >
-        <input type="number" th:field="*{capacity}" placeholder=" Capacity" >
+        <input type="text" th:field="*{address}" placeholder="Address" required>
+        <input type="number" th:field="*{capacity}" placeholder=" Capacity" required>
 
-        <input type="number" th:field="*{amountOfTracks}" placeholder=" Tracks">
+        <input type="number" th:field="*{amountOfTracks}" placeholder=" Tracks" required>
 
-        <input type="number" th:field="*{length}" placeholder="Length" >
+        <input type="number" th:field="*{length}" placeholder="Length" required>
         <span class="number"><label>Capacity </label>
         <label> Tracks </label>
         <label> Length</label></span>
         <button type="submit" class="btn2"> SAVE</button>
     </form>
 </div>
+    <br><br><br><br><br>
     <hr>
 
-    <a th:href = "@{/ui/stadiums/get/all}"> Back to Stadium List</a>
+    <a th:href = "@{/ui/stadiums/get/all}"> Back to Stadiums List</a>
 
     </div>
 </body>

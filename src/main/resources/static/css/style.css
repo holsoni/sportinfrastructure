@@ -45,21 +45,18 @@ body{
     writing-mode: vertical-rl;
     font-size: 90px;
     transform: rotate(180deg);
-    margin: 10px 20px 120px 20px;
-    margin: 120px 10px 120px 50px;
+    margin: 150px 10px 120px 70px;
     position: absolute;
 }
 
 
 table {
-
-    width: 1150px;
+    width: 940px;
     border-collapse: collapse;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow:  9px 9px 30px,
-    -9px -9px 30px;
-    margin: 100px 209px;
+    box-shadow:  9px 9px 30px, -9px -9px 30px;
+    margin:  121px 259px;
     position: absolute;
     font-size: 17px;
     font-weight: 600;
@@ -118,18 +115,17 @@ tbody td:hover::before{
  }
 .add{
     position: absolute;
-    border: 1px solid #434343;
     border-radius: 100%;
     line-height: 20px;
     height:45px;
     width:70px;
-    margin: 50px 71px;
+    margin: 80px 94px;
     font-size: 90px;
     font-weight: bolder;
     text-align: center;
-background-color: rgba(48, 47, 47, 0.6);
+    background-color: rgba(48, 47, 47, 0.6);
     color: #fff;
-    padding-top: 19px;
+    padding-top: 24px;
     text-decoration: none;
 }
 

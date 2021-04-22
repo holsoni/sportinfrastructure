@@ -11,14 +11,18 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+@Data
 public class PlayTen {
     private UUID _id;
     private String name;
     private String address;
     private String coating;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
+    private String description;
 }

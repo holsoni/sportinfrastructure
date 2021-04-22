@@ -11,17 +11,23 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+@Data
 public class Sportsmen {
     private UUID _id;
     private String name;
     private int age;
-    private List<Sport> sport;
+    private Sport sport;
+    private Degree degree;
     private SportClub sportClub;
     private int rating;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
+    private String description;
 }

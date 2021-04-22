@@ -13,12 +13,16 @@ package edu.coursework.sportinfrastructure.controller.rest;
 
 import edu.coursework.sportinfrastructure.model.Stadium;
 import edu.coursework.sportinfrastructure.service.stadium.impls.StadiumServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
 import java.util.List;
 
+@Tag(name = "Stadium controler API", description = " Detailed description")
 @RestController
 @RequestMapping("api/stadiums")
 public class StadiumRestController {
@@ -36,10 +40,13 @@ public class StadiumRestController {
         return service.getById(id);
     }
 
+    @Operation(summary = "Stadium delete", description = "By by, stadium")
     @GetMapping("/delete/{id}")
-    public Stadium deleteById(@PathVariable("id") String id){
+    public Stadium deleteById(@PathVariable("id")  String id){
         return service.delete(id);
     }
+
+    @Operation(summary = "Stadium creation", description = "Id is UUID, length in metres")
     @PostMapping ("/create/")
     public Stadium create(@RequestBody Stadium stadium){
         return service.create(stadium);

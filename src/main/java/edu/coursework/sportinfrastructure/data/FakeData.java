@@ -35,11 +35,11 @@ public class FakeData {
 
     private List<Stadium> stadiums = new ArrayList<>(
             Arrays.asList(
-                    new Stadium("1", "Стадіон Динамо", "вул. Бортна 6", 4500, 6, 400, "резина", LocalDateTime.now(),LocalDateTime.now()),
-                    new Stadium("2", "Стадіон Юність", "вул. Едельвейс 46", 500, 2, 200, "бетон",LocalDateTime.now(),LocalDateTime.now()),
-                    new Stadium("3", "Стадіон Чорноморець", "вул. Валова 16", 3800, 5, 3700, "поліуретан",LocalDateTime.now(),LocalDateTime.now()),
-                    new Stadium("4", "Стадіон Кап", "вул. Карпатська 78", 10500, 8, 400, "поліуретан",LocalDateTime.now(),LocalDateTime.now()),
-                    new Stadium("5", "Стадіон Немо", "вул. Жаби 43", 7600, 6, 400, "резина",LocalDateTime.now(),LocalDateTime.now())));
+                    new Stadium("1", "Стадіон Динамо", "вул. Бортна 6", 4500, 6, 400, "резина"),
+                    new Stadium("2", "Стадіон Юність", "вул. Едельвейс 46", 500, 2, 200, "бетон"),
+                    new Stadium("3", "Стадіон Чорноморець", "вул. Валова 16", 3800, 5, 3700, "поліуретан"),
+                    new Stadium("4", "Стадіон Кап", "вул. Карпатська 78", 10500, 8, 400, "поліуретан"),
+                    new Stadium("5", "Стадіон Немо", "вул. Жаби 43", 7600, 6, 400, "резина")));
 
     public List<Stadium> getStadiums() {
         return stadiums;

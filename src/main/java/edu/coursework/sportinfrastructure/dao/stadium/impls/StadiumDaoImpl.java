@@ -32,14 +32,12 @@ public class StadiumDaoImpl implements IStadiumDao {
                         .findFirst().orElse(null);
     }
 
-    @Override
     public Stadium create(Stadium stadium) {
         String id = String.valueOf(this.getAll().stream()
                 .mapToInt(el->Integer.parseInt(el.getId()))
                 .max().orElse(0)+1);
-        stadium.setId(id);
         stadium.setCreated_at(LocalDateTime.now());
-        stadium.setModified_at(LocalDateTime.now());
+        stadium.setId(id);
         this.getAll().add(stadium);
         return stadium;
     }

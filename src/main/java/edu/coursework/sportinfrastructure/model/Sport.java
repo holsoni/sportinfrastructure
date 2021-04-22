@@ -12,4 +12,13 @@
 package edu.coursework.sportinfrastructure.model;
 
 public enum Sport {
+    Л_А,
+    БАСКЕТБОЛ,
+    ВОЛЕЙБОЛ,
+    ВІЛЬНА_БОРОТЬБА,
+    ПЛАВАННЯ,
+    БОКС,
+    ФУТБОЛ,
+    ТЕНІС,
+    ГІМНАСТИКА
 }

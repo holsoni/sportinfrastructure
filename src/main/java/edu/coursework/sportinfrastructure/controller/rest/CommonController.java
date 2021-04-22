@@ -12,11 +12,13 @@
 package edu.coursework.sportinfrastructure.controller.rest;
 
 import edu.coursework.sportinfrastructure.model.Coach;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
+@Hidden
 @RestController
 public class CommonController {
 

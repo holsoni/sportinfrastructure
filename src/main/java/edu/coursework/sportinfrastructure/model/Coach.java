@@ -28,7 +28,9 @@ public class Coach {
     private SportClub sportClub;
     private int hourlyWage;
     private int hoursPerWeek;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
+    private String description;
 
 }

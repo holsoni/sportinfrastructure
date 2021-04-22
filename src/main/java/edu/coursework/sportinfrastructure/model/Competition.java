@@ -24,9 +24,10 @@ public class Competition {
     private String city;
     private CompetitionOrganizer competitionOrganizer;
     private int events;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
-
+    private String description;
 
 
 }

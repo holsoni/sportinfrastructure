@@ -11,8 +11,8 @@
 
 package edu.coursework.sportinfrastructure.model;
 
-import lombok.Data;
-import lombok.NonNull;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.annotation.Id;
@@ -21,35 +21,27 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-@Document(collection = "stadium")
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Stadium Document")
 
 public class Stadium {
+
     private String Id;
+    @Schema(description = "Cтадіон ...........")
     private String name;
+
     private String address;
     private int capacity;
     private int amountOfTracks;
     private int length;
     private String trackCoating;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
+    private String description;
 
-    public Stadium() {
-    }
-
-    public Stadium(String name, String address, int capacity, int amountOfTracks, int length, String trackCoating, LocalDateTime created_at, LocalDateTime modified_at) {
-        this.name = name;
-        this.address = address;
-        this.capacity = capacity;
-        this.amountOfTracks = amountOfTracks;
-        this.length = length;
-        this.trackCoating = trackCoating;
-        this.created_at = created_at;
-        this.modified_at = modified_at;
-    }
-
-
-    public Stadium(String id, String name, String address, int capacity, int amountOfTracks, int length, String trackCoating, LocalDateTime created_at, LocalDateTime modified_at) {
+    public Stadium(String id, String name, String address, int capacity, int amountOfTracks, int length, String trackCoating) {
         Id = id;
         this.name = name;
         this.address = address;
@@ -57,7 +49,7 @@ public class Stadium {
         this.amountOfTracks = amountOfTracks;
         this.length = length;
         this.trackCoating = trackCoating;
-        this.created_at = created_at;
-        this.modified_at = modified_at;
+        this.created_at = LocalDateTime.now();
     }
+
 }

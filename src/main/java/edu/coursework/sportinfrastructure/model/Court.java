@@ -24,6 +24,8 @@ public class Court {
     private int area;
     private int amountOfCourts;
     private String coating;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
+    private String description;
 }

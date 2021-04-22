@@ -46,14 +46,18 @@ public class StadiumUiController {
     @PostMapping("/addStadium")
     public String addStadium(Model model, @ModelAttribute("employee") @RequestBody Stadium stadium) {
         String address = stadium.getAddress();
+        String name = stadium.getName();
+        int length = stadium.getLength();
+        int tracks = stadium.getAmountOfTracks();
+        int capacity = stadium.getCapacity();
         List<Stadium> stadiums = service.getAll();
 
-        if (address != null && address.length() > 0) {
-            service.getAll().add(stadium);
-            model.addAttribute("stadiums",stadiums);
+        if (address != null && address.length() > 0 && name != null
+                && name.length() > 0 && length > 0 && tracks > 0 && capacity>0) {
+            model.addAttribute("stadiums",service.create(stadium));
             return "redirect:/ui/stadiums/get/all";
         }
-        return "new_stadium";
+        return "redirect:/ui/stadiums/showNewStadiumForm";
     }
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){

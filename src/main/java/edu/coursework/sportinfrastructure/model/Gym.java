@@ -11,9 +11,12 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Data
 public class Gym {
     private UUID _id;
     private String name;
@@ -21,6 +24,8 @@ public class Gym {
     private int area;
     private int amountOfSimulators;
     private String extra;
+
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
+    private String description;
 }
