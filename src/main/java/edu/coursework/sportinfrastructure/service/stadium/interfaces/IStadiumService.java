@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface IStadiumService {
 
-    Optional<Stadium> getById(String id);
+    Stadium getById(String id);
     Stadium create(Stadium stadium);
     Stadium update(Stadium stadium);
     void delete(String id);

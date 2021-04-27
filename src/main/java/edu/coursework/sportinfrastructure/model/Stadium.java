@@ -26,10 +26,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Schema(description = "Stadium Document")
 
-@Entity
 public class Stadium {
 
-    @Id
     private String Id;
     private String name;
 
