@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @Data
 public class Competition {
-    private UUID _id;
+    private String id;
     private String name;
     private Sport sport;
     private String city;

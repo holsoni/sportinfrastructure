@@ -11,23 +11,31 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.*;
 
 @Data
+@Builder
+@Document(collection = "sportsmen")
 public class Sportsmen {
-    private UUID _id;
+    @Id
+    private String id;
     private String name;
     private int age;
-    private Sport sport;
-    private Degree degree;
+    @DBRef
+    @Field("sportClub")
     private SportClub sportClub;
-    private int rating;
+    private List<SportAndDegree> sportAndDegree;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
+
 }

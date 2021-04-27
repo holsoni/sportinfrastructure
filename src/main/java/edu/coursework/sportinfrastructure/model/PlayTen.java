@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 @Data
 public class PlayTen {
-    private UUID _id;
+    private String id;
     private String name;
     private String address;
     private String coating;

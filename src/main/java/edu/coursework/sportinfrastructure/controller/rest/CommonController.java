@@ -29,10 +29,10 @@ public class CommonController {
         return str;
     };
 
-    @GetMapping("/coach")
+    /*@GetMapping("/coach")
     public Coach getCoach(){
         Coach coach = new Coach(UUID.randomUUID(),"hhf",49);
         return coach;
-    }
+    }*/
 
 }

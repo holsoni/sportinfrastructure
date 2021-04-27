@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.UUID;
 @Data
 public class SportArena {
-    private UUID _id;
+    private String id;
     private String name;
     private String address;
     private int area;

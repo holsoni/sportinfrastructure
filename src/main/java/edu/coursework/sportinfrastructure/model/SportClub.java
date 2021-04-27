@@ -11,14 +11,19 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-public class SportClub {
-    private UUID _id;
+@Builder
+@Document(collection = "sportClubs")
+public class SportClub implements Serializable{
+    private String id;
     private String name;
     private int foundationYear;
     private String creator;
@@ -30,4 +35,6 @@ public class SportClub {
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
     private String description;
+
+
 }

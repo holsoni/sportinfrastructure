@@ -3,11 +3,13 @@ package edu.coursework.sportinfrastructure.service.stadium.impls;
 import edu.coursework.sportinfrastructure.dao.stadium.impls.StadiumDaoImpl;
 import edu.coursework.sportinfrastructure.data.FakeData;
 import edu.coursework.sportinfrastructure.model.Stadium;
+import edu.coursework.sportinfrastructure.repository.stadium.StadiumRepository;
 import edu.coursework.sportinfrastructure.service.stadium.interfaces.IStadiumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StadiumServiceImpl implements IStadiumService {
@@ -18,24 +20,27 @@ public class StadiumServiceImpl implements IStadiumService {
     @Autowired
     StadiumDaoImpl dao;
 
+    @Autowired
+    StadiumRepository stadiumRepository;
+
     @Override
-    public Stadium getById(String id) {
-        return dao.getById(id);
+    public Optional<Stadium> getById(String id) {
+        return stadiumRepository.findById(id);
     }
 
     @Override
     public Stadium create(Stadium stadium) {
-        return dao.create(stadium);
+        return stadiumRepository.save(stadium);
     }
 
     @Override
     public Stadium update(Stadium stadium) {
-        return dao.update(stadium);
+        return stadiumRepository.save(stadium);
     }
 
     @Override
-    public Stadium delete(String id) {
-        return dao.delete(id);
+    public void delete(String id) {
+        stadiumRepository.deleteById(id);
     }
 
     @Override
@@ -45,6 +50,6 @@ public class StadiumServiceImpl implements IStadiumService {
 
     @Override
     public List<Stadium> getAll() {
-        return dao.getAll();
+        return stadiumRepository.findAll();
     }
 }

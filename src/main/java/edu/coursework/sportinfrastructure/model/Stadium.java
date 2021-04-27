@@ -15,8 +15,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -25,10 +26,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @Schema(description = "Stadium Document")
 
+@Entity
 public class Stadium {
 
+    @Id
     private String Id;
-    @Schema(description = "Cтадіон ...........")
     private String name;
 
     private String address;

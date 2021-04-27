@@ -21,7 +21,7 @@ import java.util.UUID;
 @Data
 @RequiredArgsConstructor
 public class Coach {
-    @NonNull private UUID _id;
+    @NonNull private String id;
     @NonNull private String name;
     @NonNull private int age;
     private Sport sport;

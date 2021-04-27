@@ -20,18 +20,18 @@ import java.util.List;
 import java.util.UUID;
 @Repository
 public class FakeData {
-    private List<Coach> coaches = new ArrayList<>(
+  /*  private List<Coach> coaches = new ArrayList<>(
             Arrays.asList(
                     new Coach(UUID.randomUUID(),"Куриляк С.В.", 50),
                     new Coach(UUID.randomUUID(),"Кури О.В.", 27),
-                    new Coach(UUID.randomUUID(),"Уритнок Ш.А.", 30)));
+                    new Coach(UUID.randomUUID(),"Уритнок Ш.А.", 30)));*/
 
-    public List<Coach> getCoaches() {
+ /*   public List<Coach> getCoaches() {
         return coaches;
     }
     public void setCoaches(List<Coach> coaches) {
         this.coaches = coaches;
-    }
+    }*/
 
     private List<Stadium> stadiums = new ArrayList<>(
             Arrays.asList(

@@ -18,10 +18,11 @@ import java.util.List;
 import java.util.UUID;
 @Data
 public class Training {
-    private UUID _id;
+    private String id;
     private Sport sport;
     private List<Sportsmen> sportsmen;
     private Coach coach;
+    private SportInfrastructure sportInfrastructure;
 
     private LocalDateTime created_at;
     private LocalDateTime modified_at;
