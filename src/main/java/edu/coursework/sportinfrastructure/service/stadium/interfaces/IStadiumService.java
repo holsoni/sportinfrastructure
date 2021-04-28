@@ -10,7 +10,8 @@ import java.util.Optional;
 public interface IStadiumService  {
 
     Stadium getById(String id);
-    Stadium save(Stadium stadium);
+    Stadium update(Stadium stadium);
+    Stadium create(Stadium stadium);
     Stadium delete(String id);
     List<Stadium> getAll();
 }

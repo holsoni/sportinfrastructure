@@ -8,7 +8,8 @@ package edu.coursework.sportinfrastructure.dao.stadium.impls;
  *  * @DateTime: 01.04.21, 23:10
  *  * @Version StadiumDaoImpl.java : 1.0
  *
- */
+ *//*
+
 import edu.coursework.sportinfrastructure.dao.stadium.interfaces.IStadiumDao;
 import edu.coursework.sportinfrastructure.data.FakeData;
 import edu.coursework.sportinfrastructure.model.Stadium;
@@ -74,3 +75,4 @@ public class StadiumDaoImpl implements IStadiumDao {
         return fakeData.getStadiums();
     }
 }
+*/

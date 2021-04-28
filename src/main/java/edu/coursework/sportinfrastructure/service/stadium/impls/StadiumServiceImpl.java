@@ -6,6 +6,7 @@ import edu.coursework.sportinfrastructure.service.stadium.interfaces.IStadiumSer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,7 +22,14 @@ public class StadiumServiceImpl implements IStadiumService {
     }
 
     @Override
-    public Stadium save(Stadium stadium) {
+    public Stadium create(Stadium stadium) {
+        stadium.setCreatedAt(new Date());
+        return repository.save(stadium);
+    }
+
+    @Override
+    public Stadium update(Stadium stadium) {
+        stadium.setModifiedAt(new Date());
         return repository.save(stadium);
     }
 

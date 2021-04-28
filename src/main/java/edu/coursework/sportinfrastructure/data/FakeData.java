@@ -30,7 +30,7 @@ public class FakeData {
     public void setCoaches(List<Coach> coaches) {
         this.coaches = coaches;
     }*/
-
+/*
     private List<Stadium> stadiums = new ArrayList<>(
             Arrays.asList(
                     new Stadium("1", "Стадіон Динамо", "вул. Бортна 6", 4500, 6, 400, "резина"),
@@ -45,5 +45,5 @@ public class FakeData {
 
     public void setStadiums(List<Stadium> stadiums) {
         this.stadiums = stadiums;
-    }
+    }*/
 }

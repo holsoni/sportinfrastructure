@@ -15,7 +15,6 @@ import edu.coursework.sportinfrastructure.model.Stadium;
 import edu.coursework.sportinfrastructure.service.stadium.impls.StadiumServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +31,7 @@ public class StadiumUiController {
     public String showAll(Model model){
         List<Stadium> stadiums = service.getAll();
         model.addAttribute("stadiums",stadiums);
-        return "stadium-page";
+        return "stadium/stadium-page";
     }
 
     @GetMapping("/showNewStadiumForm")
@@ -40,19 +39,13 @@ public class StadiumUiController {
         // create model attribute to bind form data
         Stadium stadium = new Stadium();
         model.addAttribute("stadiums", stadium);
-        return "new_stadium";
-    }
-    @PostMapping("/saveStadium")
-    public String updateStadium( Stadium stadium) {
-
-        service.save(stadium);
-        return "redirect:/ui/stadiums/get/all";
+        return "stadium/new_stadium";
     }
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Stadium stadium = service.getById(id);
         model.addAttribute("stadiums",stadium);
-        return "update_stadium";
+        return "stadium/update_stadium";
     }
 
     @PostMapping("/addStadium")
@@ -66,12 +59,18 @@ public class StadiumUiController {
 
         if (address != null && address.length() > 0 && name != null
                 && name.length() > 0 && length > 0 && tracks > 0 && capacity>0) {
-            model.addAttribute("stadiums",service.save(stadium));
+            model.addAttribute("stadiums",service.create(stadium));
             return "redirect:/ui/stadiums/get/all";
         }
         return "redirect:/ui/stadiums/showNewStadiumForm";
     }
 
+    @PostMapping("/updateStadium")
+    public String updateStadium(Model model, @ModelAttribute("stadiums") @RequestBody Stadium stadium) {
+
+        service.update(stadium);
+        return "redirect:/ui/stadiums/get/all";
+    }
 
     @GetMapping("/deleteStadium/{id}")
     public String deleteEmployee(@PathVariable (value = "id") String id) {
