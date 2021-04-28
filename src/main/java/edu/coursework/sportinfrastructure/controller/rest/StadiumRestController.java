@@ -50,10 +50,10 @@ public class StadiumRestController {
     @Operation(summary = "Stadium creation", description = "Id is UUID, length in metres")
     @PostMapping ("/create/")
     public Stadium create(@RequestBody Stadium stadium){
-        return service.create(stadium);
+        return service.save(stadium);
     }
     @PostMapping ("/update/")
     public Stadium update(@RequestBody Stadium stadium){
-        return service.update(stadium);
+        return service.save(stadium);
     }
 }

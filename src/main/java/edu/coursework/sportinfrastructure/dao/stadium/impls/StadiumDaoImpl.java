@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -36,7 +37,7 @@ public class StadiumDaoImpl implements IStadiumDao {
         String id = String.valueOf(this.getAll().stream()
                 .mapToInt(el->Integer.parseInt(el.getId()))
                 .max().orElse(0)+1);
-        stadium.setCreated_at(LocalDateTime.now());
+        stadium.setCreatedAt(new Date());
         stadium.setId(id);
         this.getAll().add(stadium);
         return stadium;
@@ -50,7 +51,7 @@ public class StadiumDaoImpl implements IStadiumDao {
         updatedStadium.setCapacity(stadium.getCapacity());
         updatedStadium.setAmountOfTracks(stadium.getAmountOfTracks());
         updatedStadium.setLength(stadium.getLength());
-        updatedStadium.setModified_at(LocalDateTime.now());
+        updatedStadium.setModifiedAt(new Date());
 
         return updatedStadium;
 

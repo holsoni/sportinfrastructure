@@ -35,4 +35,8 @@ public class Coach {
     private Date modifiedAt;
     private String description;
 
+    public Coach(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

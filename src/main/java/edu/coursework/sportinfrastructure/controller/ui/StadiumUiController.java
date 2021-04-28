@@ -42,9 +42,21 @@ public class StadiumUiController {
         model.addAttribute("stadiums", stadium);
         return "new_stadium";
     }
+    @PostMapping("/saveStadium")
+    public String updateStadium( Stadium stadium) {
+
+        service.save(stadium);
+        return "redirect:/ui/stadiums/get/all";
+    }
+    @GetMapping("/showUpdateForm/{id}")
+    public String showUpdateForm(@PathVariable (value="id") String id, Model model){
+        Stadium stadium = service.getById(id);
+        model.addAttribute("stadiums",stadium);
+        return "update_stadium";
+    }
 
     @PostMapping("/addStadium")
-    public String addStadium(Model model, @ModelAttribute("employee") @RequestBody Stadium stadium) {
+    public String addStadium(Model model, @ModelAttribute("stadiums") @RequestBody Stadium stadium) {
         String address = stadium.getAddress();
         String name = stadium.getName();
         int length = stadium.getLength();
@@ -54,23 +66,13 @@ public class StadiumUiController {
 
         if (address != null && address.length() > 0 && name != null
                 && name.length() > 0 && length > 0 && tracks > 0 && capacity>0) {
-            model.addAttribute("stadiums",service.create(stadium));
+            model.addAttribute("stadiums",service.save(stadium));
             return "redirect:/ui/stadiums/get/all";
         }
         return "redirect:/ui/stadiums/showNewStadiumForm";
     }
-    @GetMapping("/showUpdateForm/{id}")
-    public String showUpdateForm(@PathVariable (value="id") String id, Model model){
-        Stadium stadium = service.getById(id);
-        model.addAttribute("stadiums",stadium);
-        return "update_stadium";
-    }
-    @PostMapping("/updateStadium")
-    public String updateStadium(Model model, @ModelAttribute("employee") @RequestBody Stadium stadium) {
 
-        service.update(stadium);
-        return "redirect:/ui/stadiums/get/all";
-    }
+
     @GetMapping("/deleteStadium/{id}")
     public String deleteEmployee(@PathVariable (value = "id") String id) {
 

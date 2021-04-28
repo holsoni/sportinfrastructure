@@ -24,8 +24,8 @@
             <th>Capacity</th>
             <th>Tracks</th>
             <th>Length</th>
-            <th>Created at</th>
-            <th>Updated at</th>
+           <!-- <th>Created at</th>
+            <th>Updated at</th>-->
             <th>OPTIONS</th>
         </tr>
         </thead>
@@ -37,8 +37,6 @@
             <td th:text="${stadium.capacity}"></td>
             <td th:text="${stadium.amountOfTracks}"></td>
             <td th:text="${stadium.length}"></td>
-            <td th:text="${stadium.created_at}"></td>
-            <td th:text="${stadium.modified_at}"></td>
             <td> <a th:href="@{/ui/stadiums/showUpdateForm/{id}(id=${stadium.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
                 <a th:href="@{/ui/stadiums/deleteStadium/{id}(id=${stadium.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
             </td>

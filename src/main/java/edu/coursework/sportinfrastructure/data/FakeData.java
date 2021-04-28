@@ -14,10 +14,8 @@ import edu.coursework.sportinfrastructure.model.Stadium;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+
 @Repository
 public class FakeData {
   /*  private List<Coach> coaches = new ArrayList<>(

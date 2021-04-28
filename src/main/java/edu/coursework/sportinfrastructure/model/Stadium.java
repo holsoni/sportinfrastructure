@@ -43,4 +43,13 @@ public class Stadium {
     private Date modifiedAt;
     private String description;
 
+    public Stadium(String id, String name, String address, int capacity, int amountOfTracks, int length, String trackCoating) {
+        Id = id;
+        this.name = name;
+        this.address = address;
+        this.capacity = capacity;
+        this.amountOfTracks = amountOfTracks;
+        this.length = length;
+        this.trackCoating = trackCoating;
+    }
 }

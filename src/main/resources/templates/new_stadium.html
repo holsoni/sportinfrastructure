@@ -31,10 +31,10 @@
     </div>
 <div class="addForm">
 
-    <form action="#" th:action="@{/ui/stadiums/addStadium}" th:object="${stadiums}"
+    <form action="#" th:action="@{/ui/stadiums/saveStadium}" th:object="${stadiums}"
           method="POST">
-        <label>ID</label>
-        <input type="text" th:field="*{id}" placeholder=" ID" required >
+        <!--<label>ID</label>
+        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
         <label>Name</label>
         <input type="text" th:field="*{name}" placeholder=" Name" required>
         <label>Adress</label>
