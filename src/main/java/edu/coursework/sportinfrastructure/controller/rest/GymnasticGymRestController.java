@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Gymnastic gym controler API")
+@Tag(name = "Gymnastic gym controler API| PostgreSQL")
 @RestController
 @RequestMapping("api/gymnasticGym")
 public class GymnasticGymRestController {
