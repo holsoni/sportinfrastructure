@@ -16,6 +16,7 @@ import edu.coursework.sportinfrastructure.repository.sportArena.SportArenaReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class SportArenaServiceImpl implements ISportArenaService {
@@ -30,11 +31,13 @@ public class SportArenaServiceImpl implements ISportArenaService {
 
     @Override
     public SportArena create(SportArena sportArena) {
+        sportArena.setCreatedAt(new Date());
         return repository.save(sportArena);
     }
 
     @Override
     public SportArena update(SportArena sportArena) {
+        sportArena.setCreatedAt(new Date());
         return repository.save(sportArena);
     }
 

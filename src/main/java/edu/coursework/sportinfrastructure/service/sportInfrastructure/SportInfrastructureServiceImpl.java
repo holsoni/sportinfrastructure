@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class SportInfrastructureServiceImpl implements ISsportInfrastructureService {
@@ -30,11 +31,13 @@ public class SportInfrastructureServiceImpl implements ISsportInfrastructureServ
 
     @Override
     public SportInfrastructure create(SportInfrastructure sportInfrastructure) {
+        sportInfrastructure.setCreatedAt(new Date());
         return repository.save(sportInfrastructure);
     }
 
     @Override
     public SportInfrastructure update(SportInfrastructure sportInfrastructure) {
+        sportInfrastructure.setModifiedAt(new Date());
         return repository.save(sportInfrastructure);
     }
 

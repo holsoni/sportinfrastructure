@@ -16,6 +16,7 @@ import edu.coursework.sportinfrastructure.repository.wrestlingGym.WrestlingGymRe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,11 +32,13 @@ public class WrestlingGymServiceImpl implements IWrestlingGymService {
 
     @Override
     public WrestlingGym create(WrestlingGym wrestlingGym) {
+        wrestlingGym.setCreatedAt(new Date());
         return repository.save(wrestlingGym);
     }
 
     @Override
     public WrestlingGym update(WrestlingGym wrestlingGym) {
+        wrestlingGym.setModifiedAt(new Date());
         return repository.save(wrestlingGym);
     }
 

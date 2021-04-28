@@ -18,6 +18,7 @@ import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class CompetitionServiceImpl implements ICompetition {
@@ -31,11 +32,13 @@ public class CompetitionServiceImpl implements ICompetition {
 
     @Override
     public Competition create(Competition competition) {
+        competition.setCreatedAt(new Date());
         return repository.save(competition);
     }
 
     @Override
     public Competition update(Competition competition) {
+        competition.setModifiedAt(new Date());
         return repository.save(competition);
     }
 

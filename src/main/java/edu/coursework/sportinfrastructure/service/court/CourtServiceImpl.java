@@ -17,6 +17,7 @@ import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class CourtServiceImpl implements ICourtService {
@@ -31,11 +32,13 @@ public class CourtServiceImpl implements ICourtService {
 
     @Override
     public Court create(Court court) {
+        court.setCreatedAt(new Date());
         return repository.save(court);
     }
 
     @Override
     public Court update(Court court) {
+        court.setModifiedAt(new Date());
         return repository.save(court);
     }
 

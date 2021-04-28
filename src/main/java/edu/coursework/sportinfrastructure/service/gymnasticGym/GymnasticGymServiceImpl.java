@@ -17,6 +17,7 @@ import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class GymnasticGymServiceImpl implements IGymnasticGymService {
@@ -31,11 +32,13 @@ public class GymnasticGymServiceImpl implements IGymnasticGymService {
 
     @Override
     public GymnasticGym create(GymnasticGym gymnasticGym) {
+        gymnasticGym.setCreatedAt(new Date());
         return repository.save(gymnasticGym);
     }
 
     @Override
     public GymnasticGym update(GymnasticGym gymnasticGym) {
+        gymnasticGym.setModifiedAt(new Date());
         return repository.save(gymnasticGym);
     }
 

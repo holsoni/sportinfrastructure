@@ -16,6 +16,7 @@ import edu.coursework.sportinfrastructure.repository.Training.TrainingRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class TrainingServiceImpl implements ITrainingService {
@@ -29,11 +30,13 @@ public class TrainingServiceImpl implements ITrainingService {
 
     @Override
     public Training create(Training training) {
+        training.setCreatedAt(new Date());
         return repository.save(training);
     }
 
     @Override
     public Training update(Training training) {
+        training.setModifiedAt(new Date());
         return repository.save(training);
     }
 
