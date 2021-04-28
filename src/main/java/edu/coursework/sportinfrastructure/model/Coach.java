@@ -11,26 +11,28 @@
 
 package edu.coursework.sportinfrastructure.model;
 
-import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "coach")
 public class Coach {
-    @NonNull private String id;
-    @NonNull private String name;
-    @NonNull private int age;
+    @Id
+    private String id;
+    private String name;
+    private int age;
     private Sport sport;
     private SportClub sportClub;
-    private int hourlyWage;
-    private int hoursPerWeek;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
 
 }

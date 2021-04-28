@@ -13,21 +13,23 @@ package edu.coursework.sportinfrastructure.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(description = "Stadium Document")
+@Document(collection = "stadium")
 
 public class Stadium {
 
+    @org.springframework.data.annotation.Id
     private String Id;
     private String name;
 
@@ -37,19 +39,8 @@ public class Stadium {
     private int length;
     private String trackCoating;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
-
-    public Stadium(String id, String name, String address, int capacity, int amountOfTracks, int length, String trackCoating) {
-        Id = id;
-        this.name = name;
-        this.address = address;
-        this.capacity = capacity;
-        this.amountOfTracks = amountOfTracks;
-        this.length = length;
-        this.trackCoating = trackCoating;
-        this.created_at = LocalDateTime.now();
-    }
 
 }

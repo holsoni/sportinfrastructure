@@ -11,11 +11,21 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "sportInfrastructure")
 public class SportInfrastructure {
 
+    @Id
     private String id;
     private Stadium stadium;
     private SportArena sportArena;
@@ -25,38 +35,8 @@ public class SportInfrastructure {
     private PlayTen playTen;
     private GymnasticGym gymnasticGym;
 
-    public SportInfrastructure(String id, Stadium stadium) {
-        this.id = id;
-        this.stadium = stadium;
-    }
+    private Date createdAt;
+    private Date modifiedAt;
+    private String description;
 
-    public SportInfrastructure(String id, SportArena sportArena) {
-        this.id = id;
-        this.sportArena = sportArena;
-    }
-
-    public SportInfrastructure(String id, Gym gym) {
-        this.id = id;
-        this.gym = gym;
-    }
-
-    public SportInfrastructure(String id, Court court) {
-        this.id = id;
-        this.court = court;
-    }
-
-    public SportInfrastructure(String id, PlayTen playTen) {
-        this.id = id;
-        this.playTen = playTen;
-    }
-
-    public SportInfrastructure(String id, WrestlingGym wrestlingGym) {
-        this.id = id;
-        this.wrestlingGym = wrestlingGym;
-    }
-
-    public SportInfrastructure(String id, GymnasticGym gymnasticGym) {
-        this.id = id;
-        this.gymnasticGym = gymnasticGym;
-    }
 }

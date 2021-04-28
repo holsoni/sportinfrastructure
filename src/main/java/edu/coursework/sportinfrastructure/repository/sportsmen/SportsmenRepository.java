@@ -5,7 +5,7 @@
  *  *
  *  * @Autor: SoniaKK
  *  * @DateTime: 27.04.21, 20:32
- *  * @Version SportsmenRepository.java : 1.0
+ *  * @Version GymnasticGym.java : 1.0
  *
  */
 

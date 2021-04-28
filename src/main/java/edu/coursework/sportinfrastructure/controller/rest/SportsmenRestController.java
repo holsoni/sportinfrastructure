@@ -30,7 +30,7 @@ public class SportsmenRestController {
     SportsmenServiceImpl service;
 
     @GetMapping("/get/all")
-    public List<Sportsmen> getStadiums(){
+    public List<Sportsmen> getAll(){
         return service.getAll() ;
     }
 

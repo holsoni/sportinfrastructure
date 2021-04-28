@@ -25,7 +25,6 @@ public class SportsmenServiceImpl implements ISportsmenService {
     @Autowired
     SportsmenRepository repository;
 
-
     @Override
     public Sportsmen getById(String id) {
         return repository.findById(id).orElse(null);

@@ -43,7 +43,8 @@ public class StadiumRestController {
     @Operation(summary = "Stadium delete", description = "By by, stadium")
     @GetMapping("/delete/{id}")
     public Stadium deleteById(@PathVariable("id")  String id){
-        return service.delete(id);
+         service.delete(id);
+         return null;
     }
 
     @Operation(summary = "Stadium creation", description = "Id is UUID, length in metres")

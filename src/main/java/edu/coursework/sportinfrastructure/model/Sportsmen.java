@@ -29,8 +29,6 @@ public class Sportsmen {
     private String id;
     private String name;
     private int age;
-    @DBRef
-    @Field("sportClub")
     private SportClub sportClub;
     private List<SportAndDegree> sportAndDegree;
 

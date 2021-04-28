@@ -11,12 +11,19 @@
 
 package edu.coursework.sportinfrastructure.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "gym")
 public class Gym {
     private String id;
     private String name;
@@ -25,7 +32,7 @@ public class Gym {
     private int amountOfSimulators;
     private String extra;
 
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
     private String description;
 }
