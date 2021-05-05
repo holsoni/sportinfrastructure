@@ -13,7 +13,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Sportsmen Management System</title>
+    <title>Sport Club Management System</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet"
@@ -24,39 +24,32 @@
 <body>
 
 <div class="container">
-    <div class="updateText">SPORTSMEN MANAGEMENT SYSTEM</div>
+    <div class="updateText">SPORT CLUB MANAGEMENT SYSTEM</div>
     <hr>
     <div class="addText">
         ADD
     </div>
 <div class="addForm">
 
-    <form action="#" th:action="@{/ui/sportsmen/add}" th:object="${sportsman}"
-          method="POST">
-        <!--<label>ID</label>
-        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+    <form action="#" th:action="@{/ui/sportClubs/add}" th:object="${sportClub}"
+          method="POST" >
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
         <label>Name</label>
-        <input type="text" th:field="*{name}" placeholder=" Name" required>
-        <label>Age</label>
-        <input type="number" th:field="*{age}" placeholder="Address" required>
-        <label>SportCub:</label>
-        <!--<select th:field="*{sportClub}">
-            <option th:each="p : ${sportClub}" th:value="${p}" th:text="${p}" />
-        </select>
-        <select th:field="*{sport}">
-            <option th:each="p : ${sport}" th:value="${p}" th:text="${p}" />
-        </select>-->
-
-
-
-
-        <button type="submit" class="btn2"> SAVE</button>
+        <input type="text" th:field="*{name}" >
+        <label>Year of Foundation</label>
+        <input type="number" th:field="*{foundationYear}" placeholder="year" required>
+        <label>City</label>
+        <input type="text" th:field="*{city}" placeholder=" city" required>
+        <label>Creator</label>
+        <input type="text" th:field="*{creator}" placeholder=" creator" required>
+        <button type="submit" class="btn1" >SAVE</button>
     </form>
 </div>
     <br><br><br><br><br>
     <hr>
 
-    <a th:href = "@{/ui/stadiums/get/all}"> Back to Stadiums List</a>
+    <a th:href = "@{/ui/sportClubs/get/all}"> Back to Sport Clubs List</a>
 
     </div>
 </body>

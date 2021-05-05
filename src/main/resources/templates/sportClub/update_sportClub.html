@@ -13,35 +13,36 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Stadium Management System</title>
+    <title>Coach Management System</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <div class="updateText">STADIUM MANAGEMENT SYSTEM</div>
+    <div class="updateText">COACH MANAGEMENT SYSTEM</div>
     <hr>
 
 <div class="updateForm">
-    <form action="#" th:action="@{/ui/stadiums/updateStadium}" th:object="${stadiums}"
+    <form action="#" th:action="@{/ui/sportClubs/update}" th:object="${sportClub}"
           method="POST" >
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
         <label>Name</label>
         <input type="text" th:field="*{name}" >
-        <label>Name</label>
-        <input type="text" th:field="*{address}"  >
-        <input type="number" th:field="*{capacity}"  ><label>Name</label>
-        <input type="number" th:field="*{amountOfTracks}" ><label>Name</label>
-        <input type="number" th:field="*{length}"  ><label>Length</label>
+        <label>Year of Foundation</label>
+        <input type="number" th:field="*{foundationYear}" placeholder="year" required>
+        <label>City</label>
+        <input type="text" th:field="*{city}" placeholder=" city" required>
+        <label>Creator</label>
+        <input type="text" th:field="*{creator}" placeholder=" creator" required>
         <button type="submit" class="btn1" >DONE</button>
     </form>
 </div>
     <br><br><br><br><br><br><br><br><br><br>
     <hr>
 
-    <a th:href = "@{/}"> Back to Stadiums List</a>
+    <a th:href = "@{/sportClubs/getAll}"> Back to Sport Clubs List</a>
 </div>
 </body>
 </html>

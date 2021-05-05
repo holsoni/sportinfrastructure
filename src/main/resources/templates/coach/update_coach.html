@@ -1,11 +1,11 @@
 <!--
   ~ /**
   ~  * Created by IntelliJ IDEA.
-  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/update_coach.html
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/update_sportClub.html
   ~  *
   ~  * @Autor: SoniaKK
   ~  * @DateTime: 06.04.21, 12:04
-  ~  * @Version update_coach.html : 1.0
+  ~  * @Version update_sportClub.html : 1.0
   ~  */
   -->
 
@@ -34,7 +34,7 @@
         <input type="text" th:field="*{age}"  >
         <label>SportCub:</label>
         <select th:field="*{sportClub}">
-            <option th:each="s : ${sportClub}" th:value="${s.id}" th:text="${s.name}" />
+            <option th:each="sc : ${sportClubs}" th:value="${sc.id}" th:text="${sc.name}" />
         </select>
         <label>Sport:</label>
         <select th:field="*{sport}">

@@ -1,11 +1,11 @@
 <!--
   ~ /**
   ~  * Created by IntelliJ IDEA.
-  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/stadium/coach-page.html
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/stadium/sportClub-page.html
   ~  *
   ~  * @Autor: SoniaKK
   ~  * @DateTime: 28.04.21, 13:07
-  ~  * @Version coach-page.html : 1.0
+  ~  * @Version sportClub-page.html : 1.0
   ~  */
   -->
 
@@ -15,13 +15,30 @@
     <meta charset="UTF-8" />
     <title>Stadiums List</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link  th:href="@{/css/menu.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
 <body>
-<div class="text">
-    STADIUMS
-</div>
+<nav role="navigation">
+    <div id="menuToggle">
+
+        <input type="checkbox" />
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+        <ul id="menu">
+            <a th:href="@{#}"><li>Home</li></a>
+            <a th:href="@{/ui/sportClubs/get/all}"><li>SportClubs</li></a>
+            <a th:href="@{/ui/coaches/get/all}"><li>Coach</li></a>
+            <a th:href="@{/ui/stadiums/get/all}"><li>Stadium</li></a>
+
+        </ul>
+    </div>
+</nav>
 <div >
     <a class="add" th:href = "@{/ui/stadiums/showNewStadiumForm}"> +</a>
 </div>
@@ -54,6 +71,9 @@
         </tr>
         </tbody>
     </table>
+</div>
+<div class="text">
+    STADIUMS
 </div>
 
 <br><br><br><br><br>

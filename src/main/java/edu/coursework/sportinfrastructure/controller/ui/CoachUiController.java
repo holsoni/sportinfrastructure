@@ -60,9 +60,8 @@ public class CoachUiController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Coach coach = service.getById(id);
         model.addAttribute("coach",coach);
-        List<String> sportClubs = sportClubService.getAll().stream().map(SportClub::getName)
-                .collect(Collectors.toList());
-        model.addAttribute("sportClub", sportClubs);
+        List<SportClub> sportClubs = sportClubService.getAll();
+        model.addAttribute("sportClubs", sportClubs);
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
         return "coach/update_coach";
@@ -78,9 +77,6 @@ public class CoachUiController {
 
     @PostMapping("/update")
     public String update(Model model, @ModelAttribute("coach") @RequestBody Coach coach) {
-        List<String> sportClubs = sportClubService.getAll().stream().map(SportClub::getName)
-                .collect(Collectors.toList());
-        model.addAttribute("sportClub", sportClubs);
         service.update(coach);
         return "redirect:/ui/coaches/get/all";
     }

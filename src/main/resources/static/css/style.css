@@ -45,8 +45,7 @@ body{
     writing-mode: vertical-rl;
     font-size: 90px;
     transform: rotate(180deg);
-    margin: 150px 10px 120px 70px;
-    position: absolute;
+    margin: 150px 0px 120px 1270px;
 }
 
 
@@ -119,11 +118,11 @@ tbody td:hover::before{
     line-height: 20px;
     height:45px;
     width:70px;
-    margin: 80px 94px;
+    margin: 30px 94px 80px 1290px;
     font-size: 90px;
     font-weight: bolder;
     text-align: center;
-    background-color: rgba(48, 47, 47, 0.6);
+  /*  background-color: rgba(48, 47, 47, 0.6);*/
     color: #fff;
     padding-top: 24px;
     text-decoration: none;
@@ -143,7 +142,7 @@ a:visited{
 .updateForm{
     background-color: rgba(49,49,49,0.2);
     color:gray;
-    height: 420px;
+    height: 520px;
     width: 400px;
     padding: 40px;
     padding: 60px;
@@ -169,6 +168,22 @@ a:visited{
     font-size: 17px;
     margin-left: -5px;
 }
+select{
+    color: gray;
+    width: 300px;
+    text-align: center;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(244,244,244,0.8);
+    font-size: 17px;
+    line-height: 20px;
+    margin-left: -10px;
+}
+.updateForm:active{
+    text-decoration: none;
+    border: none;
+}
 
 .updateText{
     background-color: rgba(48, 47, 47, 0.3);
@@ -191,7 +206,7 @@ label{
     font-size: 25px;
     border-radius: 15px;
     margin-top: 60px;
-    margin-left: -40px;
+    margin-left: 90px;
     position: absolute;
 
 }
@@ -232,9 +247,12 @@ label{
     font-size: 25px;
     border-radius: 15px;
     margin-top: 60px;
-    margin-left: -40px;
+
     position: absolute;
-    margin-left: -140px;
+    margin-left: 100px;
+}
+textarea:focus, input:focus{
+    outline: none;
 }
 .number{
     margin-left: 20px;

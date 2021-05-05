@@ -1,11 +1,11 @@
 <!--
   ~ /**
   ~  * Created by IntelliJ IDEA.
-  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/new_coach.html
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/new_sportClub.html
   ~  *
   ~  * @Autor: SoniaKK
   ~  * @DateTime: 06.04.21, 00:24
-  ~  * @Version new_coach.html : 1.0
+  ~  * @Version new_sportClub.html : 1.0
   ~  */
   -->
 
@@ -37,13 +37,15 @@
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
         <label>Name</label>
         <input type="text" th:field="*{name}" placeholder=" Name" required>
-        <label>Age</label>
+        <label>&emsp;&emsp;&emsp;Age</label>
         <input type="number" th:field="*{age}" placeholder="Age" required>
-        <label>SportCub:</label>
+        <br><br>
+        <label>SportClub</label>
         <select th:field="*{sportClub}">
             <option th:each="s : ${sportClubs}" th:value="${s.id}" th:text="${s.name}" />
         </select>
-        <label>Sport:</label>
+        <br><br>
+        <label>Sport</label>
         <select th:field="*{sport}">
             <option th:each="sport : ${sport}" th:value="${sport}" th:text="${sport}" />
         </select>

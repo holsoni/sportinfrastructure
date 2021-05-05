@@ -13,6 +13,7 @@ package edu.coursework.sportinfrastructure.model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,8 +23,8 @@ import java.util.Date;
 import java.util.UUID;
 
 @Data
-@Builder
-@Document(collection = "sportClubs")
+@RequiredArgsConstructor
+@Document(collection = "sportClub")
 public class SportClub implements Serializable{
     @Id
     private String id;
@@ -31,9 +32,6 @@ public class SportClub implements Serializable{
     private int foundationYear;
     private String creator;
     private String city;
-    private int amountOfSportsmen;
-    private int amountOfCouches;
-    private int amountOfSports;
 
     private Date createdAt;
     private Date modifiedAt;
