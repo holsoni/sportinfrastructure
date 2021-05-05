@@ -24,5 +24,5 @@ public interface ICoachService {
     Coach create(Coach coach);
     Coach update(Coach coach);
     Coach delete(String id);
-    List<Coach> getALl();
+    List<Coach> getAll();
 }

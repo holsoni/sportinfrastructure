@@ -11,14 +11,11 @@
 
 package edu.coursework.sportinfrastructure.model;
 
-import lombok.Builder;
 import lombok.Data;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.*;
 
@@ -31,7 +28,7 @@ public class Sportsmen {
     private String name;
     private int age;
     private SportClub sportClub;
-    private List<SportAndDegree> sportAndDegree;
+    private ArrayList<SportAndDegree> sportAndDegree;
 
     private Date createdAt;
     private Date modifiedAt;
@@ -41,4 +38,13 @@ public class Sportsmen {
         this.id = id;
         this.name = name;
     }
+
+    public String getSport(){
+        for (SportAndDegree item:sportAndDegree
+             ) {
+            return item.getSport() + " - " + item.getDegree();
+        }
+        return null;
+    }
+
 }

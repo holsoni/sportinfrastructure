@@ -49,6 +49,8 @@ public class SportClubServiceImpl implements ISportClubService {
         return null;
     }
 
+
+
     @Override
     public List<SportClub> getAll() {
         return repository.findAll();

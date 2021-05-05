@@ -13,6 +13,7 @@ package edu.coursework.sportinfrastructure.service.sportClub;
 
 
 
+import edu.coursework.sportinfrastructure.model.Sport;
 import edu.coursework.sportinfrastructure.model.SportClub;
 import edu.coursework.sportinfrastructure.model.Sportsmen;
 

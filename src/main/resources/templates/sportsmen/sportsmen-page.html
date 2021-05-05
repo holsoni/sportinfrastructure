@@ -23,7 +23,7 @@
     STADIUMS
 </div>
 <div >
-    <a class="add" th:href = "@{/ui/stadiums/showNewStadiumForm}"> +</a>
+    <a class="add" th:href = "@{/ui/sportsmen/showNewSportsmenForm}"> +</a>
 </div>
 
 <div  ><table>
@@ -31,25 +31,23 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Adress</th>
-            <th>Capacity</th>
-            <th>Tracks</th>
-            <th>Length</th>
+            <th>Age</th>
+            <th>Sport</th>
+            <th>SportClub</th>
            <!-- <th>Created at</th>
             <th>Updated at</th>-->
             <th>OPTIONS</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="stadium: ${stadiums}">
-            <td th:text="${stadium.id}"></td>
-            <td th:text="${stadium.name}"></td>
-            <td th:text="${stadium.address}"></td>
-            <td th:text="${stadium.capacity}"></td>
-            <td th:text="${stadium.amountOfTracks}"></td>
-            <td th:text="${stadium.length}"></td>
-            <td> <a th:href="@{/ui/stadiums/showUpdateForm/{id}(id=${stadium.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
-                <a th:href="@{/ui/stadiums/deleteStadium/{id}(id=${stadium.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
+        <tr th:each="sportsmen: ${sportsman}">
+            <td th:text="${sportsmen.id}"></td>
+            <td th:text="${sportsmen.name}"></td>
+            <td th:text="${sportsmen.age}"></td>
+            <td th:text="${sportsmen.getSport()}"></td>
+            <td th:text="${sportsmen.sportClub.name}"></td>
+            <td> <a th:href="@{/ui/sportsmen/showUpdateForm/{id}(id=${sportsmen.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
+                <a th:href="@{/ui/sportsmen/delete/{id}(id=${sportsmen.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
             </td>
         </tr>
         </tbody>

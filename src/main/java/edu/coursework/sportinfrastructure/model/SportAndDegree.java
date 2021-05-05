@@ -20,4 +20,9 @@ public class SportAndDegree {
 
     private Sport sport;
     private Degree degree;
+
+    public String getInfo(){
+        return sport + " - " + degree + "; ";
+    }
 }
+

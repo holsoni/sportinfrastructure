@@ -39,4 +39,8 @@ public class Coach {
         this.id = id;
         this.name = name;
     }
+
+    public String getSportClubName(){
+        return sportClub.getName();
+    }
 }
