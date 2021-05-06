@@ -12,44 +12,42 @@
 package edu.coursework.sportinfrastructure.service.gymnasticGym;
 
 import edu.coursework.sportinfrastructure.model.GymnasticGym;
-import edu.coursework.sportinfrastructure.repository.GymnasticGym.GymnasticGymRepository;
-import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class GymnasticGymServiceImpl implements IGymnasticGymService {
 
+    public static final String HASH_KEY = "GymnasticGym";
     @Autowired
-    GymnasticGymRepository repository;
+    private RedisTemplate template;
+
 
     @Override
-    public GymnasticGym getById(String id) {
-        return repository.findById(id).orElse(null);
+    public GymnasticGym save(GymnasticGym gymnasticGym) {
+        template.opsForHash().put(HASH_KEY,gymnasticGym.getId(),gymnasticGym);
+        return gymnasticGym;
     }
 
     @Override
-    public GymnasticGym create(GymnasticGym gymnasticGym) {
-        gymnasticGym.setCreatedAt(new Date());
-        return repository.save(gymnasticGym);
+    public GymnasticGym findById(String id) {
+        return (GymnasticGym) template.opsForHash().get(HASH_KEY,id);
     }
 
     @Override
-    public GymnasticGym update(GymnasticGym gymnasticGym) {
-        gymnasticGym.setModifiedAt(new Date());
-        return repository.save(gymnasticGym);
+    public List<GymnasticGym> findAll() {
+        return template.opsForHash().values(HASH_KEY);
     }
 
     @Override
     public GymnasticGym delete(String id) {
-        repository.deleteById(id);
-        return null;
-    }
-
-    @Override
-    public List<GymnasticGym> getAll() {
-        return repository.findAll();
+        template.opsForHash().delete(HASH_KEY,id);
+        return (GymnasticGym) template.opsForHash().get(HASH_KEY,id);
     }
 }

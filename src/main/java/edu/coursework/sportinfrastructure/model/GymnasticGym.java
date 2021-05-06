@@ -16,15 +16,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.redis.core.RedisHash;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "gymnasticGyms")
-public class GymnasticGym {
+@RedisHash("GymnasticGym")
+public class GymnasticGym implements Serializable {
     @Id
     private String id;
     private String name;
