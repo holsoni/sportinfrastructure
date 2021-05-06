@@ -56,4 +56,8 @@ public class StadiumRestController {
     public Stadium update(@RequestBody Stadium stadium){
         return service.update(stadium);
     }
+    @GetMapping ("/queries/getGroupBy")
+    public Object getGroupBy(){
+        return service.getStatisticsOfStadiums();
+    }
 }
