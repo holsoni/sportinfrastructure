@@ -11,43 +11,54 @@
 
 package edu.coursework.sportinfrastructure.service.gymnasticGym;
 
+import com.google.gson.Gson;
 import edu.coursework.sportinfrastructure.model.GymnasticGym;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.RedisTemplate;
+import lombok.var;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class GymnasticGymServiceImpl implements IGymnasticGymService {
 
-    public static final String HASH_KEY = "GymnasticGym";
-    @Autowired
-    private RedisTemplate template;
+    private static final Jedis jedis = new Jedis("localhost", 6379);
+    private static final Gson gson = new Gson();
 
 
     @Override
     public GymnasticGym save(GymnasticGym gymnasticGym) {
-        template.opsForHash().put(HASH_KEY,gymnasticGym.getId(),gymnasticGym);
+        jedis.rpush("GymnasticGym.", String.valueOf(gymnasticGym.getId()));
+        jedis.set("GymnasticGym." + gymnasticGym.getId(), gson.toJson(gymnasticGym));
         return gymnasticGym;
     }
 
     @Override
-    public GymnasticGym findById(String id) {
-        return (GymnasticGym) template.opsForHash().get(HASH_KEY,id);
+    public GymnasticGym findById(Long id) {
+        var json = jedis.get("GymnasticGym." + id);
+        return parseGym(json);
     }
 
     @Override
     public List<GymnasticGym> findAll() {
-        return template.opsForHash().values(HASH_KEY);
+        var coaches = jedis.lrange("coach", 0, -1);
+        return coaches.stream()
+                .map(id -> findById(Long.parseLong(id)))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public GymnasticGym delete(String id) {
-        template.opsForHash().delete(HASH_KEY,id);
-        return (GymnasticGym) template.opsForHash().get(HASH_KEY,id);
+    public GymnasticGym delete(GymnasticGym gymnasticGym) {
+        jedis.lrem("GymnasticGym.", 1, String.valueOf(gymnasticGym.getId()));
+        jedis.del("GymnasticGym." + gymnasticGym.getId());
+        return gymnasticGym;
+    }
+    @Override
+    public void update(GymnasticGym gymnasticGym){
+        jedis.set("GymnasticGym." + gymnasticGym.getId(), gson.toJson(gymnasticGym));
+    }
+    private GymnasticGym parseGym(String json){
+        return gson.fromJson(json, GymnasticGym.class);
     }
 }

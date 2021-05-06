@@ -28,7 +28,7 @@ import java.util.UUID;
 @RedisHash("GymnasticGym")
 public class GymnasticGym implements Serializable {
     @Id
-    private String id;
+    private Long id;
     private String name;
     private String address;
     private int area;
