@@ -1,0 +1,55 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/update_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 12:04
+  ~  * @Version update_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Court Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="updateText">COURT MANAGEMENT SYSTEM</div>
+    <hr>
+
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/courts/update}" th:object="${court}"
+          method="POST" >
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+        <label>Name</label>
+        <input type="text" th:field="*{name}" >
+        <label>Address</label>
+        <input type="text" th:field="*{address}"  >
+        <label>Courts</label>
+        <input type="number" th:field="*{amountOfCourts}" placeholder="Courts" required>
+        </select>
+        <br><br>
+        <label>Coating</label>
+        <select th:field="*{coating}">
+            <option value="Грунт" text="Грунт">Грунт</option>
+            <option value="Хард" text="Хард">Хард</option>
+            <option value="Бетон" text="Бетон">Бетон</option>
+            <option value="Поліуретан" text="Поліуретан">Поліуретан</option>
+        </select>
+        <button type="submit" class="btn1" >DONE</button>
+    </form>
+</div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{/courts/getAll}"> Back to Courts List</a>
+</div>
+</body>
+</html>

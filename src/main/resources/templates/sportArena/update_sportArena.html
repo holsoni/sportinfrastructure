@@ -1,0 +1,52 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/update_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 12:04
+  ~  * @Version update_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sport Arenas Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="updateText">SPORT ARENAS MANAGEMENT SYSTEM</div>
+    <hr>
+
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/sportArenas/update}" th:object="${sportArenas}"
+          method="POST" >
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+        <label>Name</label>
+        <input type="text" th:field="*{name}" />
+        <label>Address</label>
+        <input type="text" th:field="*{address}" /> >
+        <label>Capacity</label>
+        <input type="number" th:field="*{capacity}" placeholder="capacity" required>
+        </select>
+        <br><br>
+        <label>Sport</label>
+        <select multiple th:field="*{sport}">
+            <option th:each="sport : ${sport}" th:value="${sport}" th:text="${sport}" />
+        </select>
+        <button type="submit" class="btn1" >DONE</button>
+    </form>
+</div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{/sportArenas/getAll}"> Back to Sport Arenas List</a>
+</div>
+</body>
+</html>

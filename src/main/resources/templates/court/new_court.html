@@ -1,0 +1,65 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/new_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 00:24
+  ~  * @Version new_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Court Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="updateText">COURT MANAGEMENT SYSTEM</div>
+    <hr>
+    <div class="addText">
+        ADD
+    </div>
+<div class="addForm">
+
+    <form action="#" th:action="@{/ui/courts/add}" th:object="${court}"
+          method="POST">
+        <!--<label>ID</label>
+        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+        <label>Name</label>
+        <input type="text" th:field="*{name}" placeholder=" Name" required>
+        <label>&emsp;&emsp;&emsp;Address</label>
+        <input type="number" th:field="*{address}" placeholder="Adress" required>
+        <br><br>
+        <label>Courts</label>
+        <input type="number" th:field="*{amountOfCourts}" placeholder="Courts" required>
+        </select>
+        <br><br>
+        <label>Coating</label>
+        <select th:field="*{coating}">
+            <option value="Грунт" text="Грунт">Грунт</option>
+            <option value="Хард" text="Хард">Хард</option>
+            <option value="Бетон" text="Бетон">Бетон</option>
+            <option value="Поліуретан" text="Поліуретан">Поліуретан</option>
+        </select>
+
+        <button type="submit" class="btn2"> SAVE</button>
+    </form>
+</div>
+    <br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{/ui/courts/get/all}"> Back to Courts List</a>
+
+    </div>
+</body>
+</html>

@@ -18,6 +18,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -32,9 +33,18 @@ public class SportArena {
     private String name;
     private String address;
     private int capacity;
-    private List<Sport> sport;
+    private ArrayList<Sport> sport;
 
     private Date createdAt;
     private Date modifiedAt;
     private String description;
+
+    public String GetSportString(){
+        for (Sport item: sport
+             ) {
+            return item + "; ";
+
+        }
+        return null;
+    }
 }

@@ -1,0 +1,54 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/new_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 00:24
+  ~  * @Version new_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrestling Gym Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="updateText">WRESTING GYM MANAGEMENT SYSTEM</div>
+    <hr>
+    <div class="addText">
+        ADD
+    </div>
+<div class="addForm">
+
+    <form action="#" th:action="@{/ui/wrestlingGyms/add}" th:object="${wrestlingGyms}"
+          method="POST">
+        <!--<label>ID</label>
+        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+        <label>Name</label>
+        <input type="text" th:field="*{name}" placeholder=" Name" required>
+        <label>Adress</label>
+        <input type="text" th:field="*{address}" placeholder="Address" required>
+        <input type="number" th:field="*{amountOfCarpets}" placeholder=" Carpets" required>
+
+        <button type="submit" class="btn2"> SAVE</button>
+    </form>
+</div>
+    <br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{/ui/wrestlingGyms/get/all}"> Back to Stadiums List</a>
+
+    </div>
+</body>
+</html>

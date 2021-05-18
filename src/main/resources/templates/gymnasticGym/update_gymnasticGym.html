@@ -1,0 +1,48 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/update_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 12:04
+  ~  * @Version update_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gymnastic Gym Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="updateText">WRESTLING GYM MANAGEMENT SYSTEM</div>
+    <hr>
+
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/gymnasticGyms/update}" th:object="${gymnasticGym}"
+          method="POST" >
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+        <label>Name</label>
+        <input type="text" th:field="*{name}" >
+        <label>Adress</label>
+        <input type="text" th:field="*{address}"  >
+
+        <input type="number" th:field="*{area}" ><label>Area</label>
+        <input type="number" th:field="*{equipment}" ><label>Equipment</label>
+
+        <button type="submit" class="btn1" >DONE</button>
+    </form>
+</div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{/}"> Back to Gymnastic Gyms List</a>
+</div>
+</body>
+</html>
