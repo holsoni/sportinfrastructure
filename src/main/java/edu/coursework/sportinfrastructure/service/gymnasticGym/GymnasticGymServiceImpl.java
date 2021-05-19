@@ -13,7 +13,6 @@ package edu.coursework.sportinfrastructure.service.gymnasticGym;
 
 import edu.coursework.sportinfrastructure.model.GymnasticGym;
 import edu.coursework.sportinfrastructure.repository.GymnasticGym.GymnasticGymRepository;
-import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +25,10 @@ public class GymnasticGymServiceImpl implements IGymnasticGymService {
     GymnasticGymRepository repository;
 
     @Override
-    public GymnasticGym getById(String id) {
-        return repository.findById(id).orElse(null);
+    public GymnasticGym getById(int id) {
+        GymnasticGym gym = repository.findById(String.valueOf(id))
+                .orElse(null);
+        return gym;
     }
 
     @Override
@@ -43,9 +44,10 @@ public class GymnasticGymServiceImpl implements IGymnasticGymService {
     }
 
     @Override
-    public GymnasticGym delete(String id) {
-        repository.deleteById(id);
+    public GymnasticGym delete(int id) {
+        repository.deleteById(String.valueOf(id));
         return null;
+
     }
 
     @Override

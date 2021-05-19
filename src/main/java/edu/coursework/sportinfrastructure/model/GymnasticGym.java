@@ -14,25 +14,37 @@ package edu.coursework.sportinfrastructure.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "gymnasticGyms")
+@Entity
+@Table(name = "gymnasticgyms")
 public class GymnasticGym {
+
     @Id
     private String id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "adress")
     private String address;
+    @Column(name = "area")
     private int area;
+    @Column(name = "equipment")
     private int equipment;
-
+    @Column(name = "createdAt")
     private Date createdAt;
+    @Column(name = "modifiedAt")
     private Date modifiedAt;
+    @Column(name = "description")
     private String description;
+
+
 }

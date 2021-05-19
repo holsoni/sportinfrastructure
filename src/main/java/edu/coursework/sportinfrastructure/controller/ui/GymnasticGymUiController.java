@@ -47,7 +47,7 @@ public class GymnasticGymUiController {
         return "gymnasticGym/new_gymnasticGym";
     }
     @GetMapping("/showUpdateForm/{id}")
-    public String showUpdateForm(@PathVariable(value="id") String id, Model model){
+    public String showUpdateForm(@PathVariable(value="id") int id, Model model){
         GymnasticGym gym  = service.getById(id);
         model.addAttribute("gymnasticGym", gym);
 
@@ -68,7 +68,7 @@ public class GymnasticGymUiController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable (value = "id") String id) {
+    public String delete(@PathVariable (value = "id") int id) {
 
         // call delete employee method
         this.service.delete(id);

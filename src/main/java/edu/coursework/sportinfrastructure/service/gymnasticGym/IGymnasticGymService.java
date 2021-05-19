@@ -14,15 +14,14 @@ package edu.coursework.sportinfrastructure.service.gymnasticGym;
 
 
 import edu.coursework.sportinfrastructure.model.GymnasticGym;
-import edu.coursework.sportinfrastructure.model.Sportsmen;
 
 import java.util.List;
 
 public interface IGymnasticGymService {
 
-    GymnasticGym getById(String id);
+    GymnasticGym getById(int id);
     GymnasticGym create(GymnasticGym gymnasticGym);
     GymnasticGym update(GymnasticGym gymnasticGym);
-    GymnasticGym delete(String id);
+    GymnasticGym delete(int id);
     List<GymnasticGym> getAll();
 }

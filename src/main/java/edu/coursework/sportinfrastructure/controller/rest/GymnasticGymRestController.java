@@ -35,13 +35,13 @@ public class GymnasticGymRestController {
     }
 
     @GetMapping("/get/{id}")
-    public GymnasticGym getById(@PathVariable("id") String id){
+    public GymnasticGym getById(@PathVariable("id") int id){
         return service.getById(id);
     }
 
     @Operation(summary = "Gymnastic gym delete")
     @GetMapping("/delete/{id}")
-    public GymnasticGym deleteById(@PathVariable("id")  String id){
+    public GymnasticGym deleteById(@PathVariable("id")  int id){
         return service.delete(id);
     }
 
