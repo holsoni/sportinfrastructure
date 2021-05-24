@@ -29,7 +29,8 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
         <label>Name</label>
-        <input type="text" th:field="*{name}" >
+        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
+        <div id="validityN" class="valid-form-text"></div>
         <label>Age</label>
         <input type="text" th:field="*{age}"  >
         <label>SportCub:</label>
@@ -48,5 +49,42 @@
 
     <a th:href = "@{/coaches/getAll}"> Back to Coaches List</a>
 </div>
+<script th:inline="javascript">
+    let form = document.getElementById('stForm'); // Знаходимо нашу форму по ID
+    let submitButton = document.getElementById('submitB');
+    let validityN = document.getElementById('validityN');
+    let inputName = document.getElementById('nameInput');
+    let inputAdress = document.getElementById('adressInput');
+
+    function checkValidityName(input) {
+        if (input.value.match(/[А-ЩІЇЯЮЯЄ][а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+(\s[А-ЩЯЮЄЇІ].){2}/)) //Тут робимо RegExp значення з інпута і перевіряємо і відповідно стилізуємо месендж і інпут
+        {
+            input.classList.add('valid');
+            input.classList.remove('invalid');
+            validityN.style.opacity = '0';
+            validityN.style.height = '0';
+            validityN.innerHTML = '';
+            return true;
+        }
+        else
+        {
+            input.classList.add('invalid');
+            input.classList.remove('valid');
+
+            validityN.innerHTML = 'Будь-ласка, використайте формат "Прізвище І. П."'
+            validityN.style.opacity = '1';
+            validityN.style.height = '10px';
+            validityN.style.margin = '-15px -30px 30px';
+
+            return false;
+        }
+    }
+
+    inputName.addEventListener('keyup', function () {
+        console.log(checkValidityName(this));
+    });
+
+
+</script>
 </body>
 </html>

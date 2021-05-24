@@ -28,8 +28,11 @@ public class CoachServiceImpl implements ICoachService {
 
     @Override
     public Coach update(Coach coach) {
-        coach.setCreatedAt(new Date());
-        return repository.save(coach);
+        Date created = coach.getCreatedAt();
+        repository.save(coach);
+        coach.setCreatedAt(created);
+        coach.setModifiedAt(new Date());
+        return coach;
     }
 
     @Override

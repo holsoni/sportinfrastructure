@@ -11,10 +11,14 @@
 
 package edu.coursework.sportinfrastructure.controller.rest;
 
+import edu.coursework.sportinfrastructure.model.Coach;
 import edu.coursework.sportinfrastructure.service.coach.impls.CoachServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/coaches")
@@ -33,9 +37,9 @@ public class CoachRestController {
         Coach coach = new Coach(UUID.randomUUID(),"hhf",49);
         return coach;
     }*/
-    /*@GetMapping("/get/all")
+    @GetMapping("/get/all")
     public List<Coach> getCoaches(){
-        return service.getALl();
-    }*/
+        return service.getAll();
+    }
 
 }

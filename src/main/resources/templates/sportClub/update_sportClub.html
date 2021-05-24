@@ -29,13 +29,16 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
         <label>Name</label>
-        <input type="text" th:field="*{name}" >
+        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
+        <div id="validityN" class="valid-form-text"></div>
         <label>Year of Foundation</label>
-        <input type="number" th:field="*{foundationYear}" placeholder="year" required>
+        <input id="yearInput" type="number" th:field="*{foundationYear}" placeholder="year" required>
+        <div id="validityY" class="valid-form-text"></div>
         <label>City</label>
-        <input type="text" th:field="*{city}" placeholder=" city" required>
+        <input type="text" th:field="*{city}" placeholder="city" required>
         <label>Creator</label>
-        <input type="text" th:field="*{creator}" placeholder=" creator" required>
+        <input id="creatorInput"type="text" th:field="*{creator}" placeholder=" creator" required>
+        <div id="validityC" class="valid-form-text"></div>
         <button type="submit" class="btn1" >DONE</button>
     </form>
 </div>
@@ -44,5 +47,98 @@
 
     <a th:href = "@{/sportClubs/getAll}"> Back to Sport Clubs List</a>
 </div>
+<script th:inline="javascript">
+    let form = document.getElementById('stForm'); // Знаходимо нашу форму по ID
+    let submitButton = document.getElementById('submitB');
+    let validityN = document.getElementById('validityN');
+    let validityC= document.getElementById('validityC');
+    let validityY= document.getElementById('validityY');
+    let inputName = document.getElementById('nameInput');
+    let inputYear = document.getElementById('yearInput');
+    let inputCreator = document.getElementById('creatorInput');
+    let inputAdress = document.getElementById('adressInput');
+
+    function checkValidityCreator(input) {
+
+        if (input.value.match(/[А-ЩІЇЯЮЯЄ][а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+(\s[А-ЩЯЮЄЇІ].){2}/g))
+        {
+            input.classList.add('valid');
+            input.classList.remove('invalid');
+            validityC.innerHTML = ''
+            validityC.style.opacity = '1';
+            validityC.style.height = '10px';
+            return true;
+        }else
+        {
+            input.classList.add('invalid');
+            input.classList.remove('valid');
+            validityC.innerHTML = 'Будь-ласка, використайте формат "Прізвище І. П.'
+            validityC.style.opacity = '1';
+            validityC.style.height = '10px';
+            validityC.style.width = '350px';
+            validityC.style.margin = '-15px -30px 30px';
+            return false;
+        }
+    }
+    inputCreator.addEventListener('keyup', function () {
+        console.log(checkValidityCreator(this));});
+
+    function checkValidityName(input) {
+        if (input.value.match(/"[a-zA-Zа-щА-ЩЬьЮюЯяЇїІіЄєҐґ0-9]+"/)) //Тут робимо RegExp значення з інпута і перевіряємо і відповідно стилізуємо месендж і інпут
+        {
+            input.classList.add('valid');
+            input.classList.remove('invalid');
+            validityN.style.opacity = '0';
+            validityN.style.height = '0';
+            validityN.innerHTML = '';
+            return true;
+        }
+        else
+        {
+            input.classList.add('invalid');
+            input.classList.remove('valid');
+
+            validityN.innerHTML = 'Будь-ласка, використайте формат "Назва"'
+            validityN.style.opacity = '1';
+            validityN.style.height = '10px';
+            validityN.style.margin = '-15px -30px 30px';
+
+            return false;
+        }
+    }
+    inputName.addEventListener('keyup', function () {
+        console.log(checkValidityName(this));
+    });
+    function checkValidityYear(input) {
+        if (input.value.length>4||input.value.length<4){
+            input.classList.add('invalid');
+            input.classList.remove('valid');
+            validityN.innerHTML = 'Будь-ласка, використайте формат "YYYY"'
+            validityN.style.opacity = '1';
+            validityN.style.height = '10px';
+            validityN.style.margin = '-15px -30px 30px';
+            return false;
+        }
+        else if (!input.value.match(/^19[1-9]\d|20[0-1]\d|202[0-1]$/)) //Тут робимо RegExp значення з інпута і перевіряємо і відповідно стилізуємо месендж і інпут
+        {
+            input.classList.add('invalid');
+            input.classList.remove('valid');
+            validityN.innerHTML = 'Будь-ласка, оберіть рік в діапазоні 1910-2021'
+            validityN.style.opacity = '1';
+            validityN.style.height = '10px';
+            validityN.style.margin = '-15px -30px 30px';
+            return false;
+        } else {
+            input.classList.add('valid');
+            input.classList.remove('invalid');
+            validityN.style.opacity = '0';
+            validityN.style.height = '0';
+            validityN.innerHTML = '';
+            return true;
+        }
+        inputYear.addEventListener('keyup', function () {
+            console.log(checkValidityYear(this));
+        });}
+</script>
 </body>
 </html>

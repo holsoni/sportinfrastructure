@@ -39,6 +39,7 @@ public class CourtServiceImpl implements ICourtService {
 
     @Override
     public Court create(Court court) {
+
         LOGGER.info("Got all courts at " + new Date());
         court.setCreatedAt(new Date());
         return repository.save(court);

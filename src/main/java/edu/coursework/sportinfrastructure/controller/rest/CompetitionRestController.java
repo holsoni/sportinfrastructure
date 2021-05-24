@@ -28,12 +28,13 @@ import java.util.List;
 public class CompetitionRestController {
     @Autowired
     CompetitionServiceImpl service;
-
+    @Operation(summary = "Get all")
     @GetMapping("/get/all")
     public List<Competition> getAll(){
         return service.getAll() ;
     }
 
+    @Operation(summary = "Get by id")
     @GetMapping("/get/{id}")
     public Competition getById(@PathVariable("id") String id){
         return service.getById(id);

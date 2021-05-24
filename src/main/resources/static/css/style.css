@@ -265,3 +265,28 @@ textarea:focus, input:focus{
     margin: 160px 10px 120px 50px;
     position: absolute;
 }
+.valid {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+}
+
+.invalid {
+    color: #212529;
+    background-color: #fff;
+    border-color: #fe8686;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(255, 0, 0, .25);
+
+}
+
+.valid-form-text {
+    margin: 10px 0px 10px;
+    font-size: .875em;
+    color: red;
+    height: 0;
+    transition: all .1s ease-out;
+    text-align: center;
+}
