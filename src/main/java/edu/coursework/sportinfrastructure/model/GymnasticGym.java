@@ -30,7 +30,7 @@ import java.util.UUID;
 public class GymnasticGym {
 
     @Id
-    private String id;
+    private int id;
     @Column(name = "name")
     private String name;
     @Column(name = "adress")

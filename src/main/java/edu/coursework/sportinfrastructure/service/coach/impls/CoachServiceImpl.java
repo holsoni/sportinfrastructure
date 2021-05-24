@@ -28,7 +28,7 @@ public class CoachServiceImpl implements ICoachService {
 
     @Override
     public Coach update(Coach coach) {
-        coach.setCreatedAt(new Date());
+        coach.setModifiedAt(new Date());
         return repository.save(coach);
     }
 

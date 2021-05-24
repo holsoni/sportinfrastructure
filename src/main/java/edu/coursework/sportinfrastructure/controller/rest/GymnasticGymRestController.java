@@ -46,13 +46,13 @@ public class GymnasticGymRestController {
     }
 
     @Operation(summary = "Gymnastic gym creation")
-    @PostMapping("/create/")
+    @PostMapping("/create")
     public GymnasticGym create(@RequestBody GymnasticGym gymnasticGym){
         return service.create(gymnasticGym);
     }
 
     @Operation(summary = "Gymnastic gym update")
-    @PostMapping ("/update/")
+    @PostMapping ("/update")
     public GymnasticGym update(@RequestBody GymnasticGym gymnasticGym){
         return service.update(gymnasticGym);
     }

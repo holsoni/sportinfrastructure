@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/ui/courts")
@@ -63,7 +64,9 @@ public class CourtUiController {
 
     @PostMapping("/update")
     public String update(Model model, @ModelAttribute("court") @RequestBody Court court) {
+
         service.update(court);
+
         return "redirect:/ui/courts/get/all";
     }
 
