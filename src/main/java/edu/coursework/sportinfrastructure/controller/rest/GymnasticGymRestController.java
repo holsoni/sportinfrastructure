@@ -43,19 +43,19 @@ public class GymnasticGymRestController {
     }
 
     @Operation(summary = "Gymnastic gym delete")
-    @GetMapping("/delete/{id}")
-    public GymnasticGym deleteById(@PathVariable("id")  GymnasticGym gymnasticGym){
+    @GetMapping("/delete")
+    public GymnasticGym deleteById( GymnasticGym gymnasticGym){
         return service.delete(gymnasticGym);
     }
 
     @Operation(summary = "Gymnastic gym creation")
-    @PostMapping("/create/")
+    @PostMapping("/create")
     public GymnasticGym create(@RequestBody GymnasticGym gymnasticGym){
         return service.save(gymnasticGym);
     }
 
     @Operation(summary = "Gymnastic gym update")
-    @PostMapping ("/update/")
+    @PostMapping ("/update")
     public GymnasticGym update(@RequestBody GymnasticGym gymnasticGym){
         return service.save(gymnasticGym);
     }

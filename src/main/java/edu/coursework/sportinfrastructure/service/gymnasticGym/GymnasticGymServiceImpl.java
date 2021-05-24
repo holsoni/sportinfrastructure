@@ -42,7 +42,7 @@ public class GymnasticGymServiceImpl implements IGymnasticGymService {
 
     @Override
     public List<GymnasticGym> findAll() {
-        var coaches = jedis.lrange("coach", 0, -1);
+        var coaches = jedis.lrange("GymnasticGym.", 0, -1);
         return coaches.stream()
                 .map(id -> findById(Long.parseLong(id)))
                 .collect(Collectors.toList());
@@ -56,6 +56,7 @@ public class GymnasticGymServiceImpl implements IGymnasticGymService {
     }
     @Override
     public void update(GymnasticGym gymnasticGym){
+        jedis.del("GymnasticGym." + gymnasticGym.getId());
         jedis.set("GymnasticGym." + gymnasticGym.getId(), gson.toJson(gymnasticGym));
     }
     private GymnasticGym parseGym(String json){
