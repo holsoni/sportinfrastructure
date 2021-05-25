@@ -37,8 +37,13 @@ public class GymServiceImpl implements IGymService {
 
     @Override
     public Gym update(Gym gym) {
+        String id = gym.getId();
+        Gym courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         gym.setModifiedAt(new Date());
-        return repository.save(gym);
+        gym.setCreatedAt(createdAt);
+        repository.save(gym);
+        return gym;
     }
 
     @Override

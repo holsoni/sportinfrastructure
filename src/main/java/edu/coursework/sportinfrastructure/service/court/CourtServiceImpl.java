@@ -46,10 +46,13 @@ public class CourtServiceImpl implements ICourtService {
     }
 
     @Override
-    public Court update(Court court) {
-        LOGGER.info("Got all courts at " + new Date());
+    public Court update(Court court) { String id = court.getId();
+        Court courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         court.setModifiedAt(new Date());
-        return repository.save(court);
+        court.setCreatedAt(createdAt);
+        repository.save(court);
+        return court;
     }
 
     @Override

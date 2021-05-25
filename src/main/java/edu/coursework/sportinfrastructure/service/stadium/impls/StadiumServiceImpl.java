@@ -1,6 +1,7 @@
 package edu.coursework.sportinfrastructure.service.stadium.impls;
 
 import edu.coursework.sportinfrastructure.model.Stadium;
+import edu.coursework.sportinfrastructure.model.Training;
 import edu.coursework.sportinfrastructure.repository.stadium.StadiumRepository;
 import edu.coursework.sportinfrastructure.service.stadium.interfaces.IStadiumService;
 import lombok.RequiredArgsConstructor;
@@ -36,8 +37,13 @@ public class StadiumServiceImpl implements IStadiumService {
 
     @Override
     public Stadium update(Stadium stadium) {
+        String id = stadium.getId();
+        Stadium courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         stadium.setModifiedAt(new Date());
-        return repository.save(stadium);
+        stadium.setCreatedAt(createdAt);
+        repository.save(stadium);
+        return stadium;
     }
 
     @Override

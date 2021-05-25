@@ -38,8 +38,13 @@ public class WrestlingGymServiceImpl implements IWrestlingGymService {
 
     @Override
     public WrestlingGym update(WrestlingGym wrestlingGym) {
+        String id = wrestlingGym.getId();
+        WrestlingGym courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         wrestlingGym.setModifiedAt(new Date());
-        return repository.save(wrestlingGym);
+        wrestlingGym.setCreatedAt(createdAt);
+        repository.save(wrestlingGym);
+        return wrestlingGym;
     }
 
     @Override

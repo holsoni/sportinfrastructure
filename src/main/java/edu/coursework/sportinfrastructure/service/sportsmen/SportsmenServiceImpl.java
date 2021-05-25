@@ -13,6 +13,7 @@ package edu.coursework.sportinfrastructure.service.sportsmen;
 
 import edu.coursework.sportinfrastructure.data.FakeData;
 import edu.coursework.sportinfrastructure.model.Sportsmen;
+import edu.coursework.sportinfrastructure.model.Stadium;
 import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +40,13 @@ public class SportsmenServiceImpl implements ISportsmenService {
 
     @Override
     public Sportsmen update(Sportsmen sportsmen) {
+        String id = sportsmen.getId();
+        Sportsmen courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         sportsmen.setModifiedAt(new Date());
-        return repository.save(sportsmen);
+        sportsmen.setCreatedAt(createdAt);
+        repository.save(sportsmen);
+        return sportsmen;
     }
 
     @Override

@@ -12,6 +12,7 @@
 package edu.coursework.sportinfrastructure.service.training;
 
 import edu.coursework.sportinfrastructure.model.Training;
+import edu.coursework.sportinfrastructure.model.WrestlingGym;
 import edu.coursework.sportinfrastructure.repository.Training.TrainingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,8 +37,13 @@ public class TrainingServiceImpl implements ITrainingService {
 
     @Override
     public Training update(Training training) {
+        String id = training.getId();
+        Training courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         training.setModifiedAt(new Date());
-        return repository.save(training);
+        training.setCreatedAt(createdAt);
+        repository.save(training);
+        return training;
     }
 
     @Override

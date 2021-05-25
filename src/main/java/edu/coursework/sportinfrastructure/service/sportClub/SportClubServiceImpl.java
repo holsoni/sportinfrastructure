@@ -12,6 +12,7 @@
 package edu.coursework.sportinfrastructure.service.sportClub;
 
 import edu.coursework.sportinfrastructure.model.SportClub;
+import edu.coursework.sportinfrastructure.model.SportInfrastructure;
 import edu.coursework.sportinfrastructure.repository.sportClub.SportClubRepository;
 import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,13 @@ public class SportClubServiceImpl implements ISportClubService {
 
     @Override
     public SportClub update(SportClub sportClub) {
+        String id = sportClub.getId();
+        SportClub courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         sportClub.setModifiedAt(new Date());
-        return repository.save(sportClub);
+        sportClub.setCreatedAt(createdAt);
+        repository.save(sportClub);
+        return sportClub;
     }
 
     @Override

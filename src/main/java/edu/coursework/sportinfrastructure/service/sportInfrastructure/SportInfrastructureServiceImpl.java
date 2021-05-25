@@ -12,6 +12,7 @@
 package edu.coursework.sportinfrastructure.service.sportInfrastructure;
 
 import edu.coursework.sportinfrastructure.model.SportInfrastructure;
+import edu.coursework.sportinfrastructure.model.Stadium;
 import edu.coursework.sportinfrastructure.repository.SportInfrastructure.SportInfrastructureRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,13 @@ public class SportInfrastructureServiceImpl implements ISsportInfrastructureServ
     }
 
     @Override
-    public SportInfrastructure update(SportInfrastructure sportInfrastructure) {
+    public SportInfrastructure update(SportInfrastructure sportInfrastructure) {String id = sportInfrastructure.getId();
+        SportInfrastructure courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         sportInfrastructure.setModifiedAt(new Date());
-        return repository.save(sportInfrastructure);
+        sportInfrastructure.setCreatedAt(createdAt);
+        repository.save(sportInfrastructure);
+        return sportInfrastructure;
     }
 
     @Override

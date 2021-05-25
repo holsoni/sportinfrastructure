@@ -66,7 +66,11 @@ public class CoachUiController {
         model.addAttribute("sport", sports);
         return "coach/update_coach";
     }
-
+    @PostMapping("/update")
+    public String update(Model model, @ModelAttribute("coach") @RequestBody Coach coach) {
+        service.update(coach);
+        return "redirect:/ui/coaches/get/all";
+    }
     @PostMapping("/add")
     public String addStadium(Model model, @ModelAttribute("coach") @RequestBody Coach coach) {
 
@@ -75,11 +79,7 @@ public class CoachUiController {
 
     }
 
-    @PostMapping("/update")
-    public String update(Model model, @ModelAttribute("coach") @RequestBody Coach coach) {
-        service.update(coach);
-        return "redirect:/ui/coaches/get/all";
-    }
+
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable (value = "id") String id) {

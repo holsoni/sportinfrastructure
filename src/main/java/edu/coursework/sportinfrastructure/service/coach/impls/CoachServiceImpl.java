@@ -2,6 +2,7 @@ package edu.coursework.sportinfrastructure.service.coach.impls;
 
 import edu.coursework.sportinfrastructure.dao.coach.impls.CoachDaoImpl;
 import edu.coursework.sportinfrastructure.model.Coach;
+import edu.coursework.sportinfrastructure.model.Competition;
 import edu.coursework.sportinfrastructure.repository.coach.CoachRepository;
 import edu.coursework.sportinfrastructure.service.coach.interfaces.ICoachService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,12 @@ public class CoachServiceImpl implements ICoachService {
 
     @Override
     public Coach update(Coach coach) {
-        Date created = coach.getCreatedAt();
-        repository.save(coach);
-        coach.setCreatedAt(created);
+        String id = coach.getId();
+        Coach courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         coach.setModifiedAt(new Date());
+        coach.setCreatedAt(createdAt);
+        repository.save(coach);
         return coach;
     }
 

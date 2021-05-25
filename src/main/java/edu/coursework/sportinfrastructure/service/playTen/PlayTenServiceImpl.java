@@ -12,6 +12,7 @@
 package edu.coursework.sportinfrastructure.service.playTen;
 
 import edu.coursework.sportinfrastructure.model.PlayTen;
+import edu.coursework.sportinfrastructure.model.SportArena;
 import edu.coursework.sportinfrastructure.repository.PlayTene.PlayTenRepository;
 import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,13 @@ public class PlayTenServiceImpl implements IPlayTenService {
     }
 
     @Override
-    public PlayTen update(PlayTen playTen) {
+    public PlayTen update(PlayTen playTen) {String id = playTen.getId();
+        PlayTen courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         playTen.setModifiedAt(new Date());
-        return repository.save(playTen);
+        playTen.setCreatedAt(createdAt);
+        repository.save(playTen);
+        return playTen;
     }
 
     @Override
