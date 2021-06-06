@@ -31,5 +31,7 @@ import java.util.List;
 @Repository
 public interface StadiumRepository extends MongoRepository<Stadium, String> {
 
-
+    public List<Stadium> findAllByLength (int length);
+    public List<Stadium> findAllByCapacity (int capacity);
+    public List<Stadium> findAllByAmountOfTracks (int tracks);
 }

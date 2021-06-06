@@ -27,7 +27,10 @@ import edu.coursework.sportinfrastructure.model.Sportsmen;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CourtRepository extends MongoRepository<Court, String> {
+    public List<Court> findAllByAmountOfCourts (int numOfCourts);
 
 }

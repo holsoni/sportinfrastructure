@@ -11,10 +11,7 @@
 
 package edu.coursework.sportinfrastructure.controller.ui;
 
-import edu.coursework.sportinfrastructure.model.Sport;
-import edu.coursework.sportinfrastructure.model.SportClub;
-import edu.coursework.sportinfrastructure.model.Sportsmen;
-import edu.coursework.sportinfrastructure.model.Stadium;
+import edu.coursework.sportinfrastructure.model.*;
 import edu.coursework.sportinfrastructure.service.sportClub.SportClubServiceImpl;
 import edu.coursework.sportinfrastructure.service.sportsmen.SportsmenServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +45,12 @@ public class SportsmenUiController {
 
         Sportsmen sportsmen = new Sportsmen();
         model.addAttribute("sportsman", sportsmen);
-        List<String> sportClubs = sportClubService.getAll().stream().map(SportClub::getName)
-                .collect(Collectors.toList());
-        model.addAttribute("sportClub", sportClubs);
+        List<SportClub> sportClubs = sportClubService.getAll();
+        model.addAttribute("sportClubs", sportClubs);
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
+        List<Degree> degrees = Arrays.asList(Degree.values());
+        model.addAttribute("degree", degrees);
 
         return "sportsmen/new_sportsmen";
     }
@@ -60,20 +58,21 @@ public class SportsmenUiController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Sportsmen sportsmen = service.getById(id);
         model.addAttribute("sportsman",sportsmen );
+        List<SportClub> sportClubs = sportClubService.getAll();
+        model.addAttribute("sportClub", sportClubs);
+        List<Sport> sports = Arrays.asList(Sport.values());
+        model.addAttribute("sport", sports);
+        List<Degree> degrees = Arrays.asList(Degree.values());
+        model.addAttribute("degree", degrees);
         return "sportsmen/update_sportsmen";
     }
 
     @PostMapping("/add")
     public String addSportsmen(Model model, @ModelAttribute("sportsman") @RequestBody Sportsmen sportsmen) {
 
-        List<Sportsmen> sportsmens = service.getAll();
+        model.addAttribute("sportsman",service.create(sportsmen));
 
-        if (sportsmen.getName() != null && sportsmen.getAge() > 0 && sportsmen.getSportClub() != null
-                && sportsmen.getSportAndDegree() != null ) {
-            model.addAttribute("sportsman",service.create(sportsmen));
             return "redirect:/ui/sportsmen/get/all";
-        }
-        return "redirect:/ui/sportsmen/showNewSportsmenForm";
     }
 
     @PostMapping("/update")

@@ -56,4 +56,9 @@ public class CourtRestController {
     public Court update(@RequestBody Court court){
         return service.update(court);
     }
+
+    @GetMapping("/get/byCourts/{courts}")
+    public List<Court> getbyCourts(int courts){
+        return service.getByAmountOfCourts(courts) ;
+    }
 }

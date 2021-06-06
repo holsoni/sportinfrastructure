@@ -31,9 +31,9 @@
         <label>Name</label>
         <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
         <div id="validityN" class="valid-form-text"></div>
-        <label>Age</label>
-        <input type="text" th:field="*{age}"  >
-        <label>SportCub:</label>
+        <label>Year</label>
+        <input type="text" th:field="*{year}"  >
+        <label>SportCub</label>
         <select th:field="*{sportClub}">
             <option th:each="sc : ${sportClubs}" th:value="${sc.id}" th:text="${sc.name}" />
         </select>

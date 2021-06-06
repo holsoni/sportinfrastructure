@@ -70,12 +70,19 @@ public class StadiumServiceImpl implements IStadiumService {
     }
     private final MongoTemplate mongoTemplate;
 
-    public Object getStatisticsOfStadiums() {
 
-        Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.project("capacity","amountOfTracks", "length"),
-                Aggregation.group().min("length").as("minLength").max("amountOfTracks").as("maxTracks").avg("capacity").as("capacity"));
+    public List<Stadium> getAllByCapacity(int capacity) {
+        return repository.findAllByCapacity(capacity);
 
-        return mongoTemplate.aggregate(aggregation, "stadium", Object.class).getMappedResults();
+    }
+
+    public List<Stadium> getALlByTracks(int tracks) {
+        return repository.findAllByAmountOfTracks(tracks);
+
+    }
+
+    public List<Stadium> getALlByLength(int length) {
+        return repository.findAllByLength(length);
+
     }
 }

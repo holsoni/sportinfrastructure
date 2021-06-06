@@ -29,11 +29,13 @@ public class SportsmenRestController {
     @Autowired
     SportsmenServiceImpl service;
 
+    @Operation(summary = "Get All")
     @GetMapping("/get/all")
     public List<Sportsmen> getAll(){
         return service.getAll() ;
     }
 
+    @Operation(summary = "Get By Id")
     @GetMapping("/get/{id}")
     public Sportsmen getById(@PathVariable("id") String id){
         return service.getById(id);
@@ -55,5 +57,17 @@ public class SportsmenRestController {
     @PostMapping ("/update/")
     public Sportsmen update(@RequestBody Sportsmen sportsmen){
         return service.update(sportsmen);
+    }
+
+    @Operation(summary = "Get By Sport")
+    @GetMapping("/get/bySport/{sport}")
+    public List<Sportsmen> getAllBySport(String sport){
+        return service.getAllBySport(sport) ;
+    }
+
+    @Operation(summary = "Get By Sport And Degree")
+    @GetMapping("/get/bySportAndDegree/{sport}/{degree}")
+    public List<Sportsmen> getAllBySportAndDegree(String sport, String degree){
+        return service.getAllBySportAndDegree(sport, degree) ;
     }
 }

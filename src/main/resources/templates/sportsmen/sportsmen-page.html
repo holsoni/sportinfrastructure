@@ -13,15 +13,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Stadiums List</title>
+    <title>Sportsmen List</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link  th:href="@{/css/menu.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
 <body>
-<div class="text">
-    STADIUMS
-</div>
+
 <div >
     <a class="add" th:href = "@{/ui/sportsmen/showNewSportsmenForm}"> +</a>
 </div>
@@ -47,7 +46,6 @@
             <a th:href="@{/ui/playTens/get/all}"><li>Play ten</li></a>
             <a th:href="@{/ui/sportArenas/get/all}"><li>Sport arena</li></a>
             <a th:href="@{/ui/playTens/get/all}"><li>Play ten</li></a>
-            <a th:href="@{/ui/competitions/get/all}"><li>Competition</li></a>
 
         </ul>
     </div>
@@ -57,8 +55,9 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Age</th>
+            <th>Year</th>
             <th>Sport</th>
+            <th>Degree</th>
             <th>SportClub</th>
            <!-- <th>Created at</th>
             <th>Updated at</th>-->
@@ -69,8 +68,9 @@
         <tr th:each="sportsmen: ${sportsman}">
             <td th:text="${sportsmen.id}"></td>
             <td th:text="${sportsmen.name}"></td>
-            <td th:text="${sportsmen.age}"></td>
-            <td th:text="${sportsmen.getSport()}"></td>
+            <td th:text="${sportsmen.year}"></td>
+            <td th:text="${sportsmen.sport}"></td>
+            <td th:text="${sportsmen.degree}"></td>
             <td th:text="${sportsmen.sportClub.name}"></td>
             <td> <a th:href="@{/ui/sportsmen/showUpdateForm/{id}(id=${sportsmen.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
                 <a th:href="@{/ui/sportsmen/delete/{id}(id=${sportsmen.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
@@ -79,7 +79,9 @@
         </tbody>
     </table>
 </div>
-
+<div class="text">
+    SPORTSMEN
+</div>
 <br><br><br><br><br>
 </body>
 

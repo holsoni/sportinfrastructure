@@ -21,14 +21,15 @@ import java.util.*;
 
 @Data
 @RequiredArgsConstructor
-@Document(collection = "sportsmen")
+@Document(collection = "sportsmens")
 public class Sportsmen {
     @Id
     private String id;
     private String name;
-    private int age;
+    private int year;
     private SportClub sportClub;
-    private ArrayList<SportAndDegree> sportAndDegree;
+    private Sport sport;
+    private Degree degree;
 
     private Date createdAt;
     private Date modifiedAt;
@@ -39,12 +40,5 @@ public class Sportsmen {
         this.name = name;
     }
 
-    public String getSport(){
-        for (SportAndDegree item:sportAndDegree
-             ) {
-            return item.getSport() + " - " + item.getDegree();
-        }
-        return null;
-    }
 
 }

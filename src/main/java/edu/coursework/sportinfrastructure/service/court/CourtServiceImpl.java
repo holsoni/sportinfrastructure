@@ -66,4 +66,9 @@ public class CourtServiceImpl implements ICourtService {
         LOGGER.info("Got all courts at " + new Date());
         return repository.findAll();
     }
+
+    public List<Court> getByAmountOfCourts(int numOfCourts) {
+
+        return repository.findAllByAmountOfCourts(numOfCourts);
+    }
 }

@@ -58,4 +58,12 @@ public class SportsmenServiceImpl implements ISportsmenService {
     public List<Sportsmen> getAll() {
         return repository.findAll();
     }
+
+    public List<Sportsmen> getAllBySport(String sport) {
+        return repository.findAllBySport( sport);
+    }
+
+    public List<Sportsmen> getAllBySportAndDegree(String sport, String degree) {
+        return repository.findAllBySportAndDegree(sport,degree);
+    }
 }

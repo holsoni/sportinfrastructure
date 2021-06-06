@@ -41,10 +41,9 @@
         <label>Adress</label>
         <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
         <div id="validityA" class="valid-form-text"></div>
-        <br><br>
         <label>Courts</label>
         <input type="number" th:field="*{amountOfCourts}" placeholder="Courts" required>
-        </select>
+        </select><br>
         <label>Coating</label>
         <select th:field="*{coating}">
             <option value="Грунт" text="Грунт">Грунт</option>
@@ -119,7 +118,7 @@
             input.classList.add('invalid');
             input.classList.remove('valid');
 
-            validityN.innerHTML = 'Будь-ласка, використайте формат "Прізвище І. П."'
+            validityN.innerHTML = 'Будь-ласка, використайте формат "Корти ...."'
             validityN.style.opacity = '1';
             validityN.style.height = '10px';
             validityN.style.margin = '-15px -30px 30px';

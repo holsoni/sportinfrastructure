@@ -46,7 +46,7 @@
             <a th:href="@{/ui/playTens/get/all}"><li>Play ten</li></a>
             <a th:href="@{/ui/sportArenas/get/all}"><li>Sport arena</li></a>
             <a th:href="@{/ui/playTens/get/all}"><li>Play ten</li></a>
-            <a th:href="@{/ui/competitions/get/all}"><li>Competition</li></a>
+
 
         </ul>
     </div>
@@ -74,7 +74,7 @@
         <tr th:each="coaches: ${coach}">
             <td th:text="${coaches.id}"></td>
             <td th:text="${coaches.name}"></td>
-            <td th:text="${coaches.age}"></td>
+            <td th:text="${coaches.year}"></td>
             <td th:text="${coaches.sport}"></td>
             <td th:text="${coaches.sportClub.name}"></td>
             <td> <a th:href="@{/ui/coaches/showUpdateForm/{id}(id=${coaches.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>

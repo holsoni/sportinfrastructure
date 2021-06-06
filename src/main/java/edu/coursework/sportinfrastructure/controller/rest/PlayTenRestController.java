@@ -28,7 +28,7 @@ import java.util.List;
 public class PlayTenRestController {
     @Autowired
     PlayTenServiceImpl service;
-
+    @Operation(summary = "Get All")
     @GetMapping("/get/all")
     public List<PlayTen> getAll(){
         return service.getAll() ;

@@ -28,7 +28,7 @@ import java.util.List;
 public class GymRestController {
     @Autowired
     GymServiceImpl service;
-
+    @Operation(summary = "Get All")
     @GetMapping("/get/all")
     public List<Gym> getAll(){
         return service.getAll() ;

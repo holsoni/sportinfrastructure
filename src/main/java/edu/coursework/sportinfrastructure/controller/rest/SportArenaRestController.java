@@ -28,12 +28,12 @@ import java.util.List;
 public class SportArenaRestController {
     @Autowired
     SportArenaServiceImpl service;
-
+    @Operation(summary = "All")
     @GetMapping("/get/all")
     public List<SportArena> getAll(){
         return service.getAll() ;
     }
-
+    @Operation(summary = "Get By Id")
     @GetMapping("/get/{id}")
     public SportArena getById(@PathVariable("id") String id){
         return service.getById(id);

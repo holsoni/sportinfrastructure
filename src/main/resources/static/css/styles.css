@@ -202,12 +202,14 @@ header nav li:last-child{
 	font: bold 60px 'Montserrat ExtraLight' , sans-serif;
 	margin-bottom: 15px;
 	margin-left:700px;
+	color: white;
 }
 
 .hero h3{
 	font: normal 28px 'Montserrat ExtraLight' , sans-serif;;
 	margin-bottom: 40px;
 	margin-left:750px;
+	color: white;
 }
 header{
 	font-famijly: 'Montserrat ExtraLight', sans-serif;;

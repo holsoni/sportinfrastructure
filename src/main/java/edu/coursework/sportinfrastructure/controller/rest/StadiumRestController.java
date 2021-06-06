@@ -30,34 +30,51 @@ public class StadiumRestController {
     @Autowired
     StadiumServiceImpl service;
 
+    @Operation(summary = "Get All")
     @GetMapping("/get/all")
     public List<Stadium> getStadiums(){
         return service.getAll() ;
     }
 
+    @Operation(summary = "Get By Id")
     @GetMapping("/get/{id}")
     public Stadium getById(@PathVariable("id") String id){
         return service.getById(id);
     }
 
-    @Operation(summary = "Stadium delete", description = "By by, stadium")
+    @Operation(summary = "Stadium delete")
     @GetMapping("/delete/{id}")
     public Stadium deleteById(@PathVariable("id")  String id){
          service.delete(id);
          return null;
     }
 
-    @Operation(summary = "Stadium creation", description = "Id is UUID, length in metres")
+    @Operation(summary = "Stadium creation")
     @PostMapping ("/create/")
     public Stadium create(@RequestBody Stadium stadium){
         return service.create(stadium);
     }
+    @Operation(summary = "Stadium update")
     @PostMapping ("/update/")
     public Stadium update(@RequestBody Stadium stadium){
         return service.update(stadium);
     }
-    @GetMapping ("/queries/getGroupBy")
-    public Object getGroupBy(){
-        return service.getStatisticsOfStadiums();
+
+    @Operation(summary = "Get By Capacity")
+    @GetMapping("/get/byCApacity/{capacity}")
+    public List<Stadium> getAllByCapacity(int capacity){
+        return service.getAllByCapacity(capacity) ;
+    }
+
+    @Operation(summary = "Get By Tracks")
+    @GetMapping("/get/byTracks/{tracks}")
+    public List<Stadium> getALlByTracks(int tracks){
+        return service.getALlByTracks(tracks) ;
+    }
+
+    @Operation(summary = "Get By Length")
+    @GetMapping("/get/byLength/{length}")
+    public List<Stadium> getStadiums(int length){
+        return service.getALlByLength( length) ;
     }
 }

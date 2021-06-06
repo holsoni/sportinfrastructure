@@ -290,3 +290,10 @@ textarea:focus, input:focus{
     transition: all .1s ease-out;
     text-align: center;
 }
+#stForm{
+
+    margin-left: -130px;
+}
+#doneSt{
+    margin-left: -40px;
+}

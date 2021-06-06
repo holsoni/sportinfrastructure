@@ -57,4 +57,8 @@ public class WrestlingGymServiceImpl implements IWrestlingGymService {
     public List<WrestlingGym> getAll() {
         return repository.findAll();
     }
+
+    public List<WrestlingGym> getByAmountOfCarpets(int numOfCarpets) {
+        return repository.findAllByAmountOfCarpets(numOfCarpets);
+    }
 }

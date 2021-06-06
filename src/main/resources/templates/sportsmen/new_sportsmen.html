@@ -38,15 +38,22 @@
         <label>Name</label>
         <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
         <div id="validityN" class="valid-form-text"></div>
-        <label>Age</label>
-        <input type="number" th:field="*{age}" placeholder="Address" required>
-        <label>SportCub:</label>
-        <!--<select th:field="*{sportClub}">
-            <option th:each="p : ${sportClub}" th:value="${p}" th:text="${p}" />
+        <label>Year</label>
+        <input type="number" th:field="*{year}" placeholder="Address" required>
+        <label>SportClub</label>
+        <select th:field="*{sportClub}">
+            <option th:each="s : ${sportClubs}" th:value="${s.id}" th:text="${s.name}" />
         </select>
+        <br>
+        <label>Sport</label>
         <select th:field="*{sport}">
-            <option th:each="p : ${sport}" th:value="${p}" th:text="${p}" />
-        </select>-->
+            <option th:each="sport : ${sport}" th:value="${sport}" th:text="${sport}" />
+        </select>
+        <br>
+        <label>Degree:</label>
+        <select th:field="*{degree}">
+            <option th:each="d : ${degree}" th:value="${d}" th:text="${d}" />
+        </select>
 
 
 

@@ -27,7 +27,7 @@ public class Coach {
     @Id
     private String id;
     private String name;
-    private int age;
+    private int year;
     private Sport sport;
     private SportClub sportClub;
 

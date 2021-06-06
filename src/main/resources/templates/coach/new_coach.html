@@ -38,8 +38,8 @@
         <label>Name</label>
         <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
         <div id="validityN" class="valid-form-text"></div>
-        <label>&emsp;&emsp;&emsp;Age</label>
-        <input type="number" th:field="*{age}" placeholder="Age" required>
+        <label>&emsp;&emsp;&emsp;Year</label>
+        <input type="number" th:field="*{year}" placeholder="Age" required>
         <br><br>
         <label>SportClub</label>
         <select th:field="*{sportClub}">
@@ -63,14 +63,14 @@
 
     </div>
 <script th:inline="javascript">
-    let form = document.getElementById('stForm'); // Знаходимо нашу форму по ID
+    let form = document.getElementById('stForm');
     let submitButton = document.getElementById('submitB');
     let validityN = document.getElementById('validityN');
     let inputName = document.getElementById('nameInput');
     let inputAdress = document.getElementById('adressInput');
 
     function checkValidityName(input) {
-        if (input.value.match(/[А-ЩІЇЯЮЯЄ][а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+(\s[А-ЩЯЮЄЇІ].){2}/)) //Тут робимо RegExp значення з інпута і перевіряємо і відповідно стилізуємо месендж і інпут
+        if (input.value.match(/[А-ЩІЇЯЮЯЄ][а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+(\s[А-ЩЯЮЄЇІ].){2}/))
         {
             input.classList.add('valid');
             input.classList.remove('invalid');
@@ -100,13 +100,12 @@
 
     form.addEventListener('submit', (e) => {
 
-        if (!checkValidityName(inputName)){ //Тут робимо безпосерднбо перевірку заповнених даних при натистку на кнопку відправити форму (знову викликаємо нашу функцію перевірки), тобто якщо нашо функція валідаціїї вертає false тоді ми не даємо можливість формі відправитися, якщо true тоді відправляємо нашу форму
+        if (!checkValidityName(inputName)){
             //console.log('no');
             e.preventDefault();
         }
 
     });
-
 
 
 </script>

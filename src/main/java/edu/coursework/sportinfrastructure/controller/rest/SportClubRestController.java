@@ -29,11 +29,13 @@ public class SportClubRestController {
     @Autowired
     SportClubServiceImpl service;
 
+    @Operation(summary = "Get All")
     @GetMapping("/get/all")
     public List<SportClub> getAll(){
         return service.getAll() ;
     }
 
+    @Operation(summary = "Get By Id")
     @GetMapping("/get/{id}")
     public SportClub getById(@PathVariable("id") String id){
         return service.getById(id);

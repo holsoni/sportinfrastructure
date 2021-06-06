@@ -30,11 +30,13 @@ public class WrestlingGymRestController {
     @Autowired
     WrestlingGymServiceImpl service;
 
+    @Operation(summary = "Get all")
     @GetMapping("/get/all")
     public List<WrestlingGym> getAll(){
         return service.getAll() ;
     }
 
+    @Operation(summary = "Get By Id")
     @GetMapping("/get/{id}")
     public WrestlingGym getById(@PathVariable("id") String id){
         return service.getById(id);
@@ -56,5 +58,11 @@ public class WrestlingGymRestController {
     @PostMapping ("/update/")
     public WrestlingGym update(@RequestBody WrestlingGym wrestlingGym){
         return service.update(wrestlingGym);
+    }
+
+    @Operation(summary = "Get By Carpets")
+    @GetMapping("/get/byCarpets/{carpets}")
+    public List<WrestlingGym> getAll(int carpets){
+        return service.getByAmountOfCarpets(carpets) ;
     }
 }

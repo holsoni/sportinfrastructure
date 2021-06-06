@@ -29,11 +29,13 @@ public class TrainingRestController {
     @Autowired
     TrainingServiceImpl service;
 
+    @Operation(summary = "Get All")
     @GetMapping("/get/all")
     public List<Training> getAll(){
         return service.getAll() ;
     }
 
+    @Operation(summary = "Get By Id")
     @GetMapping("/get/{id}")
     public Training getById(@PathVariable("id") String id){
         return service.getById(id);
