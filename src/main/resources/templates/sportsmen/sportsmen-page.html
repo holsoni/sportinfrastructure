@@ -25,7 +25,33 @@
 <div >
     <a class="add" th:href = "@{/ui/sportsmen/showNewSportsmenForm}"> +</a>
 </div>
+<nav role="navigation">
+    <div id="menuToggle">
 
+        <input type="checkbox" />
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+        <ul id="menu">
+            <a th:href="@{/home}"><li>Home</li></a>
+            <a th:href="@{/ui/sportClubs/get/all}"><li>SportClub</li></a>
+            <a th:href="@{/ui/coaches/get/all}"><li>Coach</li></a>
+            <a th:href="@{/ui/sportsmen/get/all}"><li>Sportsman</li></a>
+            <a th:href="@{/ui/stadiums/get/all}"><li>Stadium</li></a>
+            <a th:href="@{/ui/courts/get/all}"><li>Court</li></a>
+            <a th:href="@{/ui/wrestlingGyms/get/all}"><li>Wrestling Gym</li></a>
+            <a th:href="@{/ui/gymnasticGyms/get/all}"><li>Gymnastic Gym</li></a>
+            <a th:href="@{/ui/playTens/get/all}"><li>Play ten</li></a>
+            <a th:href="@{/ui/sportArenas/get/all}"><li>Sport arena</li></a>
+            <a th:href="@{/ui/playTens/get/all}"><li>Play ten</li></a>
+            <a th:href="@{/ui/competitions/get/all}"><li>Competition</li></a>
+
+        </ul>
+    </div>
+</nav>
 <div  ><table>
         <thead>
         <tr>

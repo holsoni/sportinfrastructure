@@ -6,6 +6,10 @@ import edu.coursework.sportinfrastructure.repository.stadium.StadiumRepository;
 import edu.coursework.sportinfrastructure.service.stadium.interfaces.IStadiumService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
@@ -57,7 +61,13 @@ public class StadiumServiceImpl implements IStadiumService {
         return repository.findAll();
 
     }
+    public Page<Stadium> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                Sort.by(sortField).descending();
 
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+        return this.repository.findAll(pageable);
+    }
     private final MongoTemplate mongoTemplate;
 
     public Object getStatisticsOfStadiums() {

@@ -27,13 +27,7 @@ public class SportInfrastructure {
 
     @Id
     private String id;
-    private Stadium stadium;
-    private SportArena sportArena;
-    private Gym gym;
-    private Court court;
-    private WrestlingGym wrestlingGym;
-    private PlayTen playTen;
-    private GymnasticGym gymnasticGym;
+    private Object building;
 
     private Date createdAt;
     private Date modifiedAt;

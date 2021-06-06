@@ -32,6 +32,7 @@ public class Competition {
     private Sport sport;
     private String city;
     private CompetitionOrganizer competitionOrganizer;
+    private SportInfrastructure place;
     private int events;
 
     private Date createdAt;

@@ -18,6 +18,8 @@ import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @Service
@@ -56,5 +58,17 @@ public class PlayTenServiceImpl implements IPlayTenService {
     @Override
     public List<PlayTen> getAll() {
         return repository.findAll();
+    }
+
+    public List<String> getAllNames() {
+        List<PlayTen> playTens = repository.findAll();
+        ArrayList<String> names = null;
+        for (PlayTen item : playTens
+        ) {
+            String name = item.getName();
+            names = new ArrayList<>();
+            names.add(name);
+        }
+        return names;
     }
 }

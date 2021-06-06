@@ -39,12 +39,5 @@ public class SportArena {
     private Date modifiedAt;
     private String description;
 
-    public String GetSportString(){
-        for (Sport item: sport
-             ) {
-            return item + "; ";
 
-        }
-        return null;
-    }
 }

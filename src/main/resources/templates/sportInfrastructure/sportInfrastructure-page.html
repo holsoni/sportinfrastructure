@@ -1,6 +1,17 @@
 <!--
   ~ /**
   ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/sportInfrastructure/sportInfrastructure-page.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.06.21, 14:34
+  ~  * @Version sportInfrastructure-page.html : 1.0
+  ~  */
+  -->
+
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
   ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/stadium/sportClub-page.html
   ~  *
   ~  * @Autor: SoniaKK
@@ -13,7 +24,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Play Ten List</title>
+    <title>Sport Infrastructure List</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
     <link  th:href="@{/css/menu.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
@@ -25,7 +36,7 @@
 </head>
 <body>
 <nav role="navigation">
-    <div id="menuToggle">
+    <div id="menuToggle" class="active">
 
         <input type="checkbox" />
 
@@ -35,7 +46,7 @@
 
 
         <ul id="menu">
-            <a th:href="@{/home"><li>Home</li></a>
+            <a th:href="@{/home}"><li>Home</li></a>
             <a th:href="@{/ui/sportClubs/get/all}"><li>SportClub</li></a>
             <a th:href="@{/ui/coaches/get/all}"><li>Coach</li></a>
             <a th:href="@{/ui/sportsmen/get/all}"><li>Sportsman</li></a>
@@ -54,36 +65,34 @@
 
 
 <div >
-    <a class="add" th:href = "@{/ui/playTens/showNewPlayTenForm}"> +</a>
+    <a class="add" th:href = "@{/ui/sportInfastructures/showNewInfrastructureForm}"> +</a>
 </div>
 
 <div  ><table>
         <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Coating</th>
+            <th>Building</th>
            <!-- <th>Created at</th>
             <th>Updated at</th>-->
             <th>OPTIONS</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="playTens: ${playTen}">
-            <td th:text="${playTens.id}"></td>
-            <td th:text="${playTens.name}"></td>
-            <td th:text="${playTens.address}"></td>
-            <td th:text="${playTens.coating}"></td>
-            <td> <a th:href="@{/ui/playTens/showUpdateForm/{id}(id=${playTens.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
-                <a th:href="@{/ui/playTens/delete/{id}(id=${playTens.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
+        <tr th:each="sportInfrastructure: ${sportInfrastructure}">
+            <td th:text="${sportInfrastructure.id}"></td>
+            <td th:text="${sportInfrastructure.building}"></td>
+
+            <td> <a th:href="@{/ui/coaches/showUpdateForm/{id}(id=${sportInfrastructure.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
+                <a th:href="@{/ui/coaches/delete/{id}(id=${sportInfrastructure.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 <div class="text">
-PLAYTENS</div>
+    COACHES
+</div>
 
 <br><br><br><br><br>
 </body>

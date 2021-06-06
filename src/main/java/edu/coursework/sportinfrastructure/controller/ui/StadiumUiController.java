@@ -14,6 +14,7 @@ package edu.coursework.sportinfrastructure.controller.ui;
 import edu.coursework.sportinfrastructure.model.Stadium;
 import edu.coursework.sportinfrastructure.service.stadium.impls.StadiumServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

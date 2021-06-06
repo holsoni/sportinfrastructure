@@ -1,0 +1,67 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/new_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 00:24
+  ~  * @Version new_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Competition Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="updateText">COACH MANAGEMENT SYSTEM</div>
+    <hr>
+    <div class="addText">
+        ADD
+    </div>
+<div class="addForm">
+
+    <form action="#" th:action="@{/ui/competitions/add}" th:object="${competition}"
+          method="POST">
+        <!--<label>ID</label>
+        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+        <label>Name</label>
+        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
+        <label>Sport</label>
+        <select th:field="*{sport}">
+            <option th:each="sport : ${sport}" th:value="${sport}" th:text="${sport}" />
+        </select>
+        <label>City</label>
+        <input type="text" th:field="*{city}" placeholder="city" required>
+        <label>Competition Organizer</label>
+        <select th:field="*{competitionOrganizer}">
+            <option th:each="org: ${organizer}" th:value="${organizer}" th:text="${organizer}" />
+        </select><br>
+        <label>&emsp;&emsp;&emsp;Events</label>
+        <input type="number" th:field="*{events}" placeholder="events" required>
+
+
+
+
+        <button type="submit" class="btn2"> SAVE</button>
+    </form>
+</div>
+    <br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{/ui/stadiums/get/all}"> Back to Stadiums List</a>
+
+    </div>
+
+</body>
+</html>

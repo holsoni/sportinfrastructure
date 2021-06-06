@@ -1,6 +1,17 @@
 /*
  * *
  *  * Created by IntelliJ IDEA.
+ *  * edu.coursework.sportinfrastructure.repository.coach.CoachRepository
+ *  *
+ *  * @Autor: SoniaKK
+ *  * @DateTime: 02.06.21, 00:04
+ *  * @Version CoachRepository.java : 1.0
+ *
+ */
+
+/*
+ * *
+ *  * Created by IntelliJ IDEA.
  *  * edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository
  *  *
  *  * @Autor: SoniaKK

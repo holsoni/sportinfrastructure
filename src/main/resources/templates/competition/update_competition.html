@@ -1,0 +1,61 @@
+<!--
+  ~ /**
+  ~  * Created by IntelliJ IDEA.
+  ~  * C:/Users/Acer/Desktop/uchoba/sportinfrastructure2/src/main/resources/templates/update_sportClub.html
+  ~  *
+  ~  * @Autor: SoniaKK
+  ~  * @DateTime: 06.04.21, 12:04
+  ~  * @Version update_sportClub.html : 1.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coach Management System</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="updateText">COACH MANAGEMENT SYSTEM</div>
+    <hr>
+
+<div class="updateForm">
+    <form action="#" th:action="@{/ui/competitions/add}" th:object="${competition}"
+          method="POST">
+        <!--<label>ID</label>
+        <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+        <label>Name</label>
+        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
+        <label>Sport</label>
+        <select th:field="*{sport}">
+            <option th:each="sport : ${sport}" th:value="${sport}" th:text="${sport}" />
+        </select>
+        <label>&emsp;&emsp;&emsp;City</label>
+        <input type="text" th:field="*{city}" placeholder="city" required>
+        <br><br>
+        <label>Competition Organizer</label>
+        <select th:field="*{competitionOrganizer}">
+            <option th:each="sa : ${competition}" th:value="${competition}" th:text="${competition}" />
+        </select>
+        <label>&emsp;&emsp;&emsp;Events</label>
+        <input type="number" th:field="*{events}" placeholder="events" required>
+        <label>Place</label>
+        <select th:field="*{place}">
+            <option th:each="sa : ${p}" th:value="${competition}" th:text="${competition}" />
+        </select>
+        <br><br>
+        <button type="submit" class="btn1" >DONE</button>
+    </form>
+</div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <a th:href = "@{ui/competitions/getAll}"> Back to Competition List</a>
+</div>
+
+</body>
+</html>
