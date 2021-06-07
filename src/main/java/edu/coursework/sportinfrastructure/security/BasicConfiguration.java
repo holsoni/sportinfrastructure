@@ -40,11 +40,6 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter
 	@Bean
 	protected UserDetailsService userDetailsService()
 	{
-		UserDetails user = User.builder()
-				.username("user")
-				.password(passwordEncoder.encode("soniaSICW"))
-				.roles("USER")
-				.build();
 
 		UserDetails admin = User.builder()
 				.username("admin")
@@ -53,7 +48,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter
 				.build();
 
 		return new InMemoryUserDetailsManager(
-				user, admin
+				 admin
 		);
 	}
 
