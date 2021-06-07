@@ -12,9 +12,11 @@
 package edu.coursework.sportinfrastructure.controller.ui;
 
 
+import edu.coursework.sportinfrastructure.model.Building;
 import edu.coursework.sportinfrastructure.model.Court;
 import edu.coursework.sportinfrastructure.model.Sport;
 import edu.coursework.sportinfrastructure.model.SportArena;
+import edu.coursework.sportinfrastructure.service.building.BuildingServiceImpl;
 import edu.coursework.sportinfrastructure.service.court.CourtServiceImpl;
 import edu.coursework.sportinfrastructure.service.sportArena.SportArenaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,8 @@ public class SportArenaUiController {
 
     @Autowired
     SportArenaServiceImpl service;
-
+    @Autowired
+    BuildingServiceImpl serviceB;
 
     @RequestMapping("/get/all")
     public String showAll(Model model){
@@ -49,7 +52,8 @@ public class SportArenaUiController {
         model.addAttribute("sportArenas", sportArena);
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "sportArena/new_sportArena";
     }
     @GetMapping("/showUpdateForm/{id}")
@@ -58,7 +62,8 @@ public class SportArenaUiController {
         model.addAttribute("sportArenas", sportArena);
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "sportArena/update_sportArena";
     }
 

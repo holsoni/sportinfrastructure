@@ -24,11 +24,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "gymnasticGyms")
-public class GymnasticGym {
+public class GymnasticGym extends Building{
     @Id
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private int area;
     private int equipment;
 

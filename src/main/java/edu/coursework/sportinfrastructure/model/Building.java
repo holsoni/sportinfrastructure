@@ -1,11 +1,11 @@
 /*
  * *
  *  * Created by IntelliJ IDEA.
- *  * edu.coursework.sportinfrastructure.model.SportInfrastructure
+ *  * edu.coursework.sportinfrastructure.model.Building
  *  *
  *  * @Autor: SoniaKK
- *  * @DateTime: 27.04.21, 18:47
- *  * @Version SportInfrastructure.java : 1.0
+ *  * @DateTime: 07.06.21, 08:53
+ *  * @Version Building.java : 1.0
  *
  */
 
@@ -22,15 +22,11 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "sportInfrastructure")
-public class SportInfrastructure {
-
-    @Id
+@Document(collection = "building")
+public class Building {
+@Id
     private String id;
-    private Building building;
-
-    private Date createdAt;
-    private Date modifiedAt;
-    private String description;
+    private String name;
+    private String address;
 
 }

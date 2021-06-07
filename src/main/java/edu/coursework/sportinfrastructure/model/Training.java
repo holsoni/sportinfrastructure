@@ -29,7 +29,7 @@ public class Training {
     private Sport sport;
     private List<Sportsmen> sportsmen;
     private Coach coach;
-    private SportInfrastructure sportInfrastructure;
+    private Building sportInfrastructure;
 
     private Date createdAt;
     private Date modifiedAt;

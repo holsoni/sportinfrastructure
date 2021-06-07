@@ -72,8 +72,8 @@
         <tbody>
         <tr th:each="playTens: ${playTen}">
             <td th:text="${playTens.id}"></td>
-            <td th:text="${playTens.name}"></td>
-            <td th:text="${playTens.address}"></td>
+            <td th:text="${playTens.building.name}"></td>
+            <td th:text="${playTens.building.address}"></td>
             <td th:text="${playTens.coating}"></td>
             <td> <a th:href="@{/ui/playTens/showUpdateForm/{id}(id=${playTens.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
                 <a th:href="@{/ui/playTens/delete/{id}(id=${playTens.id})}"> <i class="bi bi-trash" style="font-size: 2rem;"></i></a>

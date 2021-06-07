@@ -29,8 +29,7 @@ import java.util.UUID;
 public class Court {
     @Id
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private int amountOfCourts;
     private String coating;
 

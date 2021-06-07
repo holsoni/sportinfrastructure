@@ -35,10 +35,10 @@
           method="POST">
         <!--<label>ID</label>
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
-        <label>Name</label>
-        <input type="text" th:field="*{name}" placeholder=" Name" required>
-        <label>Adress</label>
-        <input type="text" th:field="*{address}" placeholder="Address" required>
+        <label>Building</label>
+        <select th:field="*{building}">
+            <option th:each="b : ${buildings}" th:value="${b}" th:text="${b}" />
+        </select>
         <label>Carpets</label>
         <input type="number" th:field="*{amountOfCarpets}" placeholder=" Carpets" required>
 

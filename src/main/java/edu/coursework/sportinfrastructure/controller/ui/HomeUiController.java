@@ -24,14 +24,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
-
+@RequestMapping("/about")
 @Controller
 public class HomeUiController {
 
-    @RequestMapping("/about")
+    @RequestMapping("/title")
     public String about(){
 
-        return "/title";
+        return "title";
     }
 
 

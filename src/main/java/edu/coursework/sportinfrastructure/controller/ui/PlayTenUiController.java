@@ -12,8 +12,10 @@
 package edu.coursework.sportinfrastructure.controller.ui;
 
 
+import edu.coursework.sportinfrastructure.model.Building;
 import edu.coursework.sportinfrastructure.model.Court;
 import edu.coursework.sportinfrastructure.model.PlayTen;
+import edu.coursework.sportinfrastructure.service.building.BuildingServiceImpl;
 import edu.coursework.sportinfrastructure.service.court.CourtServiceImpl;
 import edu.coursework.sportinfrastructure.service.playTen.PlayTenServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,8 @@ public class PlayTenUiController {
 
     @Autowired
     PlayTenServiceImpl service;
-
+    @Autowired
+    BuildingServiceImpl serviceB;
 
     @RequestMapping("/get/all")
     public String showAll(Model model){
@@ -43,14 +46,16 @@ public class PlayTenUiController {
 
         PlayTen playTen = new PlayTen();
         model.addAttribute("playTen", playTen);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "playTen/new_playTen";
     }
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable(value="id") String id, Model model){
         PlayTen playTen = service.getById(id);
         model.addAttribute("playTen", playTen);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "playTen/update_playTen";
     }
 

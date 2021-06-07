@@ -27,16 +27,13 @@
     <form action="#" th:action="@{/ui/courts/update}" th:object="${court}"
           method="POST" >
         <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="*{id}" />
-        <label>Name</label>
-        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
-        <div id="validityN" class="valid-form-text"></div>
-        <label>Adress</label>
-        <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
-        <div id="validityA" class="valid-form-text"></div>
+        <label>Building</label>
+        <select th:field="*{building}">
+            <option th:each="b : ${buildings}" th:value="${b}" th:text="${b}" />
+        </select>
         <label>Courts</label>
         <input type="number" th:field="*{amountOfCourts}" placeholder="Courts" required>
-        </select><br>
+        <br>
         <label>Coating</label>
         <select th:field="*{coating}">
             <option value="Грунт" text="Грунт">Грунт</option>
@@ -52,78 +49,6 @@
 
     <a th:href = "@{/courts/getAll}"> Back to Courts List</a>
 </div>
-<script th:inline="javascript">
-    let form = document.getElementById('stForm'); // Знаходимо нашу форму по ID
-    let submitButton = document.getElementById('submitB');
-    let validityN = document.getElementById('validityN');
-    let validityA = document.getElementById('validityA');
-    let inputName = document.getElementById('nameInput');
-    let inputAdress = document.getElementById('adressInput');
 
-    function checkValidityAdress(input) {
-
-        if (input.value.match(/(^вул.\s[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+\s\d*)/g))
-        {
-            input.classList.add('valid');
-            input.classList.remove('invalid');
-            validityA.innerHTML = ''
-            validityA.style.opacity = '1';
-            validityA.style.height = '10px';
-            return true;
-        }else
-        {
-            input.classList.add('invalid');
-            input.classList.remove('valid');
-            validityA.innerHTML = 'Будь-ласка, використайте формат "Корти "........"'
-            validityA.style.opacity = '1';
-            validityA.style.height = '10px';
-            validityA.style.width = '350px';
-            validityA.style.margin = '-15px -30px 30px';
-            return false;
-        }
-    }
-    inputAdress.addEventListener('keyup', function () {
-        console.log(checkValidityAdress(this));});
-
-    function checkValidityName(input) {
-        if (input.value.match(/^Корти\s"[А-ЩІЇЯЮЯЄ][а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+"/)) //Тут робимо RegExp значення з інпута і перевіряємо і відповідно стилізуємо месендж і інпут
-        {
-            input.classList.add('valid');
-            input.classList.remove('invalid');
-            validityN.style.opacity = '0';
-            validityN.style.height = '0';
-            validityN.innerHTML = '';
-            return true;
-        }
-        else if (input.value.match(/(^Корти\s\d{1,6})/)) //Тут робимо RegExp значення з інпута і перевіряємо і відповідно стилізуємо месендж і інпут
-        {
-            input.classList.add('valid');
-            input.classList.remove('invalid');
-            validityN.style.opacity = '0';
-            validityN.style.height = '0';
-            validityN.innerHTML = '';
-            return true;
-        }
-        else
-        {
-            input.classList.add('invalid');
-            input.classList.remove('valid');
-
-            validityN.innerHTML = 'Будь-ласка, використайте формат "Корти "........"'
-            validityN.style.opacity = '1';
-            validityN.style.height = '10px';
-            validityN.style.margin = '-15px -30px 30px';
-
-            return false;
-        }
-    }
-
-    inputName.addEventListener('keyup', function () {
-        console.log(checkValidityName(this));
-    });
-
-
-
-</script>
 </body>
 </html>

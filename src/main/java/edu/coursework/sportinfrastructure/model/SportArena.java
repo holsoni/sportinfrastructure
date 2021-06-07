@@ -27,11 +27,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @Document(collection = "sportArenas")
 public class SportArena {
-
-    @Id
-    private String id;
-    private String name;
-    private String address;
+@Id
+private String id;
+    private Building building;
     private int capacity;
     private ArrayList<Sport> sport;
 

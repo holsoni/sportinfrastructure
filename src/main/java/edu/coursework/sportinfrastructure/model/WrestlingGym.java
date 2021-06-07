@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -24,10 +25,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "wrestlingGyms")
-public class WrestlingGym {
+public class WrestlingGym{
+    @Id
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private int amountOfCarpets;
 
     private Date createdAt;

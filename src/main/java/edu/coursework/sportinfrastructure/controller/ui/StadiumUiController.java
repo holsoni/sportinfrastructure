@@ -11,7 +11,9 @@
 
 package edu.coursework.sportinfrastructure.controller.ui;
 
+import edu.coursework.sportinfrastructure.model.Building;
 import edu.coursework.sportinfrastructure.model.Stadium;
+import edu.coursework.sportinfrastructure.service.building.BuildingServiceImpl;
 import edu.coursework.sportinfrastructure.service.stadium.impls.StadiumServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,7 +29,8 @@ public class StadiumUiController {
 
     @Autowired
     StadiumServiceImpl service;
-
+    @Autowired
+    BuildingServiceImpl serviceB;
     @RequestMapping("/get/all")
     public String showAll(Model model){
         List<Stadium> stadiums = service.getAll();
@@ -40,30 +43,25 @@ public class StadiumUiController {
         // create model attribute to bind form data
         Stadium stadium = new Stadium();
         model.addAttribute("stadiums", stadium);
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "stadium/new_stadium";
     }
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Stadium stadium = service.getById(id);
         model.addAttribute("stadiums",stadium);
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "stadium/update_stadium";
     }
 
     @PostMapping("/addStadium")
     public String addStadium(Model model, @ModelAttribute("stadiums") @RequestBody Stadium stadium) {
-        String address = stadium.getAddress();
-        String name = stadium.getName();
-        int length = stadium.getLength();
-        int tracks = stadium.getAmountOfTracks();
-        int capacity = stadium.getCapacity();
-        List<Stadium> stadiums = service.getAll();
 
-        if (address != null && address.length() > 0 && name != null
-                && name.length() > 0 && length > 0 && tracks > 0 && capacity>0) {
             model.addAttribute("stadiums",service.create(stadium));
             return "redirect:/ui/stadiums/get/all";
-        }
-        return "redirect:/ui/stadiums/showNewStadiumForm";
+
     }
 
     @PostMapping("/updateStadium")

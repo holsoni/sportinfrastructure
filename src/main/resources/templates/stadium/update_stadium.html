@@ -28,10 +28,10 @@
           method="POST" >
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
-        <label>Name</label>
-        <input type="text" th:field="*{name}" >
-        <label>Name</label>
-        <input type="text" th:field="*{address}"  >
+        <label>Building</label>
+        <select th:field="*{building}">
+            <option th:each="b : ${buildings}" th:value="${b}" th:text="${b}" />
+        </select>
         <input type="number" th:field="*{capacity}"  ><label>Name</label>
         <input type="number" th:field="*{amountOfTracks}" ><label>Name</label>
         <input type="number" th:field="*{length}"  ><label>Length</label>

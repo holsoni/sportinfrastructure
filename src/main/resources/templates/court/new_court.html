@@ -35,15 +35,13 @@
           method="POST">
         <!--<label>ID</label>
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
-        <label>Name</label>
-        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
-        <div id="validityN" class="valid-form-text"></div>
-        <label>Adress</label>
-        <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
-        <div id="validityA" class="valid-form-text"></div>
+        <label>Building</label>
+        <select th:field="*{building}">
+            <option th:each="b : ${buildings}" th:value="${b.id}" th:text="${b.name}" />
+        </select>
         <label>Courts</label>
         <input type="number" th:field="*{amountOfCourts}" placeholder="Courts" required>
-        </select><br>
+        <br>
         <label>Coating</label>
         <select th:field="*{coating}">
             <option value="Грунт" text="Грунт">Грунт</option>

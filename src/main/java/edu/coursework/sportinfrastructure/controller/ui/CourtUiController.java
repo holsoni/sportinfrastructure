@@ -12,8 +12,11 @@
 package edu.coursework.sportinfrastructure.controller.ui;
 
 
+import edu.coursework.sportinfrastructure.model.Building;
 import edu.coursework.sportinfrastructure.model.Court;
 import edu.coursework.sportinfrastructure.model.GymnasticGym;
+import edu.coursework.sportinfrastructure.model.Sport;
+import edu.coursework.sportinfrastructure.service.building.BuildingServiceImpl;
 import edu.coursework.sportinfrastructure.service.court.CourtServiceImpl;
 import edu.coursework.sportinfrastructure.service.gymnasticGym.GymnasticGymServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RequestMapping("/ui/courts")
@@ -29,6 +33,8 @@ public class CourtUiController {
 
     @Autowired
     CourtServiceImpl service;
+    @Autowired
+    BuildingServiceImpl serviceB;
 
 
     @RequestMapping("/get/all")
@@ -43,6 +49,8 @@ public class CourtUiController {
 
         Court court = new Court();
         model.addAttribute("court", court);
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
 
         return "court/new_court";
     }
@@ -50,7 +58,8 @@ public class CourtUiController {
     public String showUpdateForm(@PathVariable(value="id") String id, Model model){
         Court court  = service.getById(id);
         model.addAttribute("court", court);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "court/update_court";
     }
 
