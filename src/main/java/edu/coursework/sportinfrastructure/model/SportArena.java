@@ -30,8 +30,7 @@ public class SportArena {
 
     @Id
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private int capacity;
     private ArrayList<Sport> sport;
 

@@ -30,9 +30,8 @@ public class Competition {
     private String id;
     private String name;
     private Sport sport;
-    private String city;
+    private Building building;
     private CompetitionOrganizer competitionOrganizer;
-    private SportInfrastructure place;
     private int events;
 
     private Date createdAt;

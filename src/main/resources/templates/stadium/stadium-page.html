@@ -69,8 +69,8 @@
         <tbody>
         <tr th:each="stadium: ${stadiums}">
             <td th:text="${stadium.id}"></td>
-            <td th:text="${stadium.name}"></td>
-            <td th:text="${stadium.address}"></td>
+            <td th:text="${stadium.building.name}"></td>
+            <td th:text="${stadium.building.address}"></td>
             <td th:text="${stadium.capacity}"></td>
             <td th:text="${stadium.amountOfTracks}"></td>
             <td th:text="${stadium.length}"></td>

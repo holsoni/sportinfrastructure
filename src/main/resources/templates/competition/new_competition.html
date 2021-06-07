@@ -41,8 +41,10 @@
         <select th:field="*{sport}">
             <option th:each="sport : ${sport}" th:value="${sport}" th:text="${sport}" />
         </select>
-        <label>City</label>
-        <input type="text" th:field="*{city}" placeholder="city" required>
+        <label>Place</label>
+        <select placeholder="Name" th:field="*{building}">
+            <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
+        </select>
         <label>Competition Organizer</label>
         <select th:field="*{competitionOrganizer}">
             <option th:each="org: ${organizer}" th:value="${organizer}" th:text="${organizer}" />

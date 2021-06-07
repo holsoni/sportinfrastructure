@@ -36,13 +36,13 @@
         <!--<label>ID</label>
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
         <label>Name</label>
-        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
-        <div id="validityN" class="valid-form-text"></div>
-        <label>Adress</label>
-        <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
-        <div id="validityA" class="valid-form-text"></div>
-        <label>Area</label>
+        <select th:field="*{building}">
+            <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
+        </select>
+        <br>
+        <label>Area&emsp;&emsp;&emsp;</label>
         <input type="number" th:field="*{area}" placeholder="Area" required>
+        <br>
         <br>
         <label>Equipment</label>
         <input type="number" th:field="*{equipment}" placeholder=" Equipment" required>

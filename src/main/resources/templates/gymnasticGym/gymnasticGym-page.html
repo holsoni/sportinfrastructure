@@ -68,8 +68,8 @@
         <tbody>
         <tr th:each="gym: ${gymnasticGym}">
             <td th:text="${gym.id}"></td>
-            <td th:text="${gym.name}"></td>
-            <td th:text="${gym.address}"></td>
+            <td th:text="${gym.building.name}"></td>
+            <td th:text="${gym.building.address}"></td>
             <td th:text="${gym.area}"></td>
             <td th:text="${gym.equipment}"></td>
             <td> <a th:href="@{/ui/gymnasticGyms/showUpdateForm/{id}(id=${gym.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>

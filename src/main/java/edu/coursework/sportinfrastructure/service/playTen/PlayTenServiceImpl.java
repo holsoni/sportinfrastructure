@@ -60,15 +60,5 @@ public class PlayTenServiceImpl implements IPlayTenService {
         return repository.findAll();
     }
 
-    public List<String> getAllNames() {
-        List<PlayTen> playTens = repository.findAll();
-        ArrayList<String> names = null;
-        for (PlayTen item : playTens
-        ) {
-            String name = item.getName();
-            names = new ArrayList<>();
-            names.add(name);
-        }
-        return names;
-    }
+
 }

@@ -12,6 +12,7 @@
 package edu.coursework.sportinfrastructure.controller.ui;
 
 import edu.coursework.sportinfrastructure.model.*;
+import edu.coursework.sportinfrastructure.service.building.BuildingServiceImpl;
 import edu.coursework.sportinfrastructure.service.coach.impls.CoachServiceImpl;
 import edu.coursework.sportinfrastructure.service.competition.CompetitionServiceImpl;
 import edu.coursework.sportinfrastructure.service.sportClub.SportClubServiceImpl;
@@ -32,7 +33,8 @@ public class CompetitionUiController {
 
     @Autowired
     SportClubServiceImpl sportClubService;
-
+    @Autowired
+    BuildingServiceImpl serviceB;
     @RequestMapping("/get/all")
     public String showAll(Model model){
         List<Competition> competitions = service.getAll();
@@ -48,9 +50,12 @@ public class CompetitionUiController {
        List<SportClub> sportClubs = sportClubService.getAll();/*.stream().map(SportClub::getName)
                 .collect(Collectors.toList());*/
         model.addAttribute("sportClubs", sportClubs);
+        List<CompetitionOrganizer> organizers = Arrays.asList(CompetitionOrganizer.values());
+        model.addAttribute("organizer", organizers);
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
-        model.addAttribute("sport", sports);
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "/competition/new_competition";
     }
     @GetMapping("/showUpdateForm/{id}")
@@ -61,6 +66,8 @@ public class CompetitionUiController {
         model.addAttribute("organizer", organizers);
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "/competition/update_competition";
     }
     @PostMapping("/update")
@@ -75,8 +82,6 @@ public class CompetitionUiController {
             return "redirect:/ui/competitions/get/all";
 
     }
-
-
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable (value = "id") String id) {

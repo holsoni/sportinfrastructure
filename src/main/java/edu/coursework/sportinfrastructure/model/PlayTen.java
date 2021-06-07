@@ -27,8 +27,7 @@ import java.util.UUID;
 public class PlayTen {
     @Id
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private String coating;
 
     private Date createdAt;

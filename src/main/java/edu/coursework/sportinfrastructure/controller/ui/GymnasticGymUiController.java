@@ -12,8 +12,10 @@
 package edu.coursework.sportinfrastructure.controller.ui;
 
 
+import edu.coursework.sportinfrastructure.model.Building;
 import edu.coursework.sportinfrastructure.model.GymnasticGym;
 import edu.coursework.sportinfrastructure.model.WrestlingGym;
+import edu.coursework.sportinfrastructure.service.building.BuildingServiceImpl;
 import edu.coursework.sportinfrastructure.service.gymnasticGym.GymnasticGymServiceImpl;
 import edu.coursework.sportinfrastructure.service.wrestlingGym.WrestlingGymServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,8 @@ public class GymnasticGymUiController {
     @Autowired
     GymnasticGymServiceImpl service;
 
-
+    @Autowired
+    BuildingServiceImpl serviceB;
     @RequestMapping("/get/all")
     public String showAll(Model model){
         List<GymnasticGym> gyms = service.getAll();
@@ -43,14 +46,16 @@ public class GymnasticGymUiController {
 
         GymnasticGym gym = new GymnasticGym();
         model.addAttribute("gymnasticGym", gym);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "gymnasticGym/new_gymnasticGym";
     }
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable(value="id") String id, Model model){
         GymnasticGym gym  = service.getById(id);
         model.addAttribute("gymnasticGym", gym);
-
+        List<Building> buildings = serviceB.getAll();
+        model.addAttribute("buildings", buildings);
         return "gymnasticGym/update_gymnasticGym";
     }
 

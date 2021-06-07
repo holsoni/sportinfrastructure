@@ -87,8 +87,7 @@ public class SportInfrastructureUiController {
         List<WrestlingGym> wrestlingGyms = wrestlingGymService.getAll();
         model.addAttribute("wrestlingGyms", wrestlingGyms);
 
-        List<String> playTens = playTenService.getAllNames();
-        model.addAttribute("playTens", playTens);
+
 
         List<SportArena> sportArenas = sportArenaService.getAll();
 

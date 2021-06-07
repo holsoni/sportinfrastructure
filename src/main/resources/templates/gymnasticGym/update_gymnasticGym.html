@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="updateText">WRESTLING GYM MANAGEMENT SYSTEM</div>
+    <div class="updateText">GYMNASTIC GYM MANAGEMENT SYSTEM</div>
     <hr>
 
 <div class="updateForm">
@@ -29,15 +29,13 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
         <label>Name</label>
-        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
-        <div id="validityN" class="valid-form-text"></div>
-        <label>Adress</label>
-        <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
-        <div id="validityA" class="valid-form-text"></div>
-
-        <input type="number" th:field="*{area}" ><label>Area</label>
+        <select th:field="*{building}">
+            <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
+        </select>
+        <br><br>
+        <label>Area</label><input type="number" th:field="*{area}" >
         <br>
-        <input type="number" th:field="*{equipment}" ><label>Equipment</label>
+        <label>Equipment </label> <input type="number" th:field="*{equipment}" >
 
         <button type="submit" class="btn1" id="doneSt" >DONE</button>
     </form>
@@ -45,7 +43,7 @@
     <br><br><br><br><br><br><br><br><br><br>
     <hr>
 
-    <a th:href = "@{/}"> Back to Gymnastic Gyms List</a>
+    <a th:href = "@{/ui/gymnasticGyms/get/all}"> Back to Gymnastic Gyms List</a>
 </div>
 <script th:inline="javascript">
     let form = document.getElementById('stForm'); // Знаходимо нашу форму по ID

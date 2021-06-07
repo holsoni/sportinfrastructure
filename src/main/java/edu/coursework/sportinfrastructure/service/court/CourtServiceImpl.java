@@ -63,7 +63,7 @@ public class CourtServiceImpl implements ICourtService {
 
     @Override
     public List<Court> getAll() {
-        LOGGER.info("Got all courts at " + new Date());
+
         return repository.findAll();
     }
 

@@ -71,7 +71,7 @@ public class SportInfrastructureRestController {
         List<Court> courts = courtService.getAll();
         List<GymnasticGym> gymnasticGyms = gymnasticGymService.getAll();
         List<WrestlingGym> wrestlingGyms = wrestlingGymService.getAll();
-        List<String> playTens = playTenService.getAllNames();
+
         List<SportArena> sportArenas = sportArenaService.getAll();
 
         List<Object> buildings = new ArrayList<>();
@@ -80,7 +80,6 @@ public class SportInfrastructureRestController {
         buildings.addAll(courts);
         buildings.addAll(gymnasticGyms);
         buildings.addAll(wrestlingGyms);
-        buildings.addAll(playTens);
         buildings.addAll(sportArenas);
 
         return buildings;

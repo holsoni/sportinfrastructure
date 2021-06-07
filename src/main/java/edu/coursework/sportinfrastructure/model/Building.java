@@ -1,11 +1,11 @@
 /*
  * *
  *  * Created by IntelliJ IDEA.
- *  * com.sportinfrastucture.coursework.model.GymnasticGym
+ *  * edu.coursework.sportinfrastructure.model.Building
  *  *
  *  * @Autor: SoniaKK
- *  * @DateTime: 01.04.21, 21:25
- *  * @Version GymnasticGym.java : 1.0
+ *  * @DateTime: 07.06.21, 21:02
+ *  * @Version Building.java : 1.0
  *
  */
 
@@ -17,19 +17,19 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "gymnasticGyms")
-public class GymnasticGym {
+@Document(collection = "building")
+public class Building {
+
     @Id
     private String id;
-    private Building building;
-    private int area;
-    private int equipment;
+    private String name;
+    private String address;
 
     private Date createdAt;
     private Date modifiedAt;

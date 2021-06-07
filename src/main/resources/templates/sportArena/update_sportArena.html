@@ -27,13 +27,11 @@
     <form action="#" th:action="@{/ui/sportArenas/update}" th:object="${sportArenas}"
           method="POST" >
         <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="*{id}" />
         <label>Name</label>
-        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
-        <div id="validityN" class="valid-form-text"></div>
-        <label>Adress</label>
-        <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
-        <div id="validityA" class="valid-form-text"></div>
+        <select th:field="*{building}">
+            <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
+        </select>
+        <br>
         <label>Capacity</label>
         <input type="number" th:field="*{capacity}" placeholder="capacity" required>
         </select>

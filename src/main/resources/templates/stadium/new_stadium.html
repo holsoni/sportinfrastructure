@@ -35,12 +35,12 @@
           method="POST">
         <!--<label>ID</label>
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
+        <br><br><br><br>
         <label>Name</label>
-        <input id="nameInput" type="text" th:field="*{name}" placeholder=" Name" required>
-        <div id="validityN" class="valid-form-text"></div>
-        <label>Adress</label>
-        <input id="adressInput" type="text" th:field="*{address}" placeholder="Address" required>
-        <div id="validityA" class="valid-form-text"></div>
+        <select th:field="*{building}">
+            <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
+        </select>
+        <br><br><br>
         <input type="number" th:field="*{capacity}" placeholder=" Capacity" required>
 
         <input type="number" th:field="*{amountOfTracks}" placeholder=" Tracks" required>
@@ -49,7 +49,7 @@
         <span class="number"><label>Capacity </label>
         <label> Tracks </label>
         <label> Length</label></span>
-        <button id="submitB"type="submit" id="stForm" class="btn2"> SAVE</button>
+        <button id="submitB"type="submit"  class="btn2"> SAVE</button>
     </form>
 </div>
     <br><br><br><br><br>

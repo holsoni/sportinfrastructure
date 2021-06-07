@@ -25,16 +25,19 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "court")
+@Document(collection = "courts")
 public class Court {
     @Id
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private int amountOfCourts;
     private String coating;
 
     private Date createdAt;
     private Date modifiedAt;
     private String description;
+
+    public String getName(){
+        return building.getName();
+    }
 }

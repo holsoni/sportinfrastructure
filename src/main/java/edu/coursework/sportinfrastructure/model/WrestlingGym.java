@@ -26,8 +26,7 @@ import java.util.UUID;
 @Document(collection = "wrestlingGyms")
 public class WrestlingGym {
     private String id;
-    private String name;
-    private String address;
+    private Building building;
     private int amountOfCarpets;
 
     private Date createdAt;

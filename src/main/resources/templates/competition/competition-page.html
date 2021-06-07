@@ -63,7 +63,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Sport</th>
-            <th>City</th>
+            <th>Place</th>
             <th>Organizer</th>
             <th>Events</th>
            <!-- <th>Created at</th>
@@ -76,7 +76,7 @@
             <td th:text="${competitions.id}"></td>
             <td th:text="${competitions.name}"></td>
             <td th:text="${competitions.sport}"></td>
-            <td th:text="${competitions.city}"></td>
+            <td th:text="${competitions.building.name}"></td>
             <td th:text="${competitions.competitionOrganizer}"></td>
             <td th:text="${competitions.events}"></td>
             <td> <a th:href="@{/ui/coaches/showUpdateForm/{id}(id=${competitions.id})}"> <i class="bi bi-pencil" style="font-size: 2rem;"></i></a>
