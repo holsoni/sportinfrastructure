@@ -28,7 +28,6 @@ import java.util.UUID;
 @Document(collection = "stadium")
 
 public class Stadium {
-
     @Id
     private String id;
     private Building building;

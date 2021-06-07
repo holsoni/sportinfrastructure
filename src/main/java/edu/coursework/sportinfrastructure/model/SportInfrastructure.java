@@ -27,7 +27,7 @@ public class SportInfrastructure {
 
     @Id
     private String id;
-    private Object building;
+    private Building building;
 
     private Date createdAt;
     private Date modifiedAt;
