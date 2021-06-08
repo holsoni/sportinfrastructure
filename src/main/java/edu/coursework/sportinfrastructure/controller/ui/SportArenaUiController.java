@@ -71,7 +71,7 @@ public class SportArenaUiController {
     public String addGym(Model model, @ModelAttribute("sportArenas") @RequestBody SportArena sportArena) {
 
         model.addAttribute("sportArenas",service.create(sportArena));
-        return "redirect:/ui/sportArena/get/all";
+        return "redirect:/ui/sportArenas/get/all";
     }
 
     @PostMapping("/update")

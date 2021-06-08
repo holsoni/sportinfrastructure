@@ -39,7 +39,7 @@
         <select th:field="*{building}">
             <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
         </select>
-        <br>
+        <br><br><br>
         <label>Capacity</label>
         <input type="number" th:field="*{capacity}" placeholder="Courts" required>
         </select>

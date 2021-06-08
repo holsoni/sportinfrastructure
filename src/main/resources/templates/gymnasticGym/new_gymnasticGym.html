@@ -39,15 +39,14 @@
         <select th:field="*{building}">
             <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
         </select>
-        <br>
+        <br><br><br>
         <label>Area&emsp;&emsp;&emsp;</label>
         <input type="number" th:field="*{area}" placeholder="Area" required>
-        <br>
-        <br>
+
         <label>Equipment</label>
         <input type="number" th:field="*{equipment}" placeholder=" Equipment" required>
-
-        <button type="submit" class="btn2" id="stForm"> SAVE</button>
+<br><br><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="submit" class="btn2" id="stForm"> SAVE</button>
     </form>
 </div>
     <br><br><br><br><br>

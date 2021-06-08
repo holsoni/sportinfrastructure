@@ -37,11 +37,9 @@
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
         <br><br><br><br>
         <label>Name</label>
-        <select th:field="*{building}">
+        <select placeholder="Name" th:field="*{building}">
             <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
-        </select>
-        <br><br><br>
-        <input type="text" th:field="*{address}" placeholder="Address" required>
+        </select><br><br>
         <label>Carpets</label>
         <input type="number" th:field="*{amountOfCarpets}" placeholder=" Carpets" required>
 
