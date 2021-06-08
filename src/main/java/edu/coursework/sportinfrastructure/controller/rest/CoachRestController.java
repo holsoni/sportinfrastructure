@@ -57,26 +57,30 @@ public class CoachRestController {
         return service.getAll();
     }
 
+    @Operation(summary = "Get All Couches Which Do Certain Sport")
     @GetMapping("/get/sport/{sport}")
     public List<Coach> getAllBySport(@PathVariable("sport")  String sport){
         return service.getAllBySport(sport);
     }
 
+    @Operation(summary = "Get All Couches Which Where Born Certain Year")
     @GetMapping("/get/year/{year}")
     public List<Coach> getAllByYear(@PathVariable("year")  int year){
         return service.getAllByYear(year);
     }
-
+    @Operation(summary = "Get Amount Of Coaches")
     @GetMapping("/get/numberOfCoaches/}")
     public Object getNumfOfCoaches(){
         return service.getNumfOfCoaches();
     }
 
+    @Operation(summary = "Get Coach By Name")
     @GetMapping("/get/name/{name}")
     public List<Coach> getAllByYear(@PathVariable("name")  String name){
         return service.getAllByName(name);
     }
 
+    @Operation(summary = "Get Information About How Many Couches Works in Certain Sportclubs")
     @GetMapping("/get/numberOfCoachesInAll")
     public Object getNumfOfCoachesInAllSportCLubs(){
         return service.getNumfOfCoachesInAllSportCLubs();

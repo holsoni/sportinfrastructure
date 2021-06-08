@@ -60,7 +60,7 @@ public class WrestlingGymRestController {
         return service.update(wrestlingGym);
     }
 
-    @Operation(summary = "Get By Carpets")
+    @Operation(summary = "Get All Wrestling Gym By Carpets")
     @GetMapping("/get/byCarpets/{carpets}")
     public List<WrestlingGym> getAll(int carpets){
         return service.getByAmountOfCarpets(carpets) ;

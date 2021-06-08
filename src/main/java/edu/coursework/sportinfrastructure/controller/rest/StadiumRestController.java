@@ -60,19 +60,19 @@ public class StadiumRestController {
         return service.update(stadium);
     }
 
-    @Operation(summary = "Get By Capacity")
+    @Operation(summary = "Get All Stadiums Capacity")
     @GetMapping("/get/byCApacity/{capacity}")
     public List<Stadium> getAllByCapacity(int capacity){
         return service.getAllByCapacity(capacity) ;
     }
 
-    @Operation(summary = "Get By Tracks")
+    @Operation(summary = "Get All Stadiums By Tracks")
     @GetMapping("/get/byTracks/{tracks}")
     public List<Stadium> getALlByTracks(int tracks){
         return service.getALlByTracks(tracks) ;
     }
 
-    @Operation(summary = "Get By Length")
+    @Operation(summary = "Get All Stadiums By Length")
     @GetMapping("/get/byLength/{length}")
     public List<Stadium> getStadiums(int length){
         return service.getALlByLength( length) ;
