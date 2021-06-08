@@ -14,7 +14,6 @@ package edu.coursework.sportinfrastructure.service.competition;
 
 
 import edu.coursework.sportinfrastructure.model.Competition;
-import edu.coursework.sportinfrastructure.model.CompetitionOrganizer;
 
 import java.util.List;
 

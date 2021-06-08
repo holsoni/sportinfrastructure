@@ -12,10 +12,7 @@
 package edu.coursework.sportinfrastructure.service.competition;
 
 import edu.coursework.sportinfrastructure.model.Competition;
-import edu.coursework.sportinfrastructure.model.CompetitionOrganizer;
-import edu.coursework.sportinfrastructure.model.Court;
 import edu.coursework.sportinfrastructure.repository.competition.CompetitionRepository;
-import edu.coursework.sportinfrastructure.repository.sportsmen.SportsmenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

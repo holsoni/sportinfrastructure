@@ -31,7 +31,7 @@ public class Competition {
     private String name;
     private Sport sport;
     private Building building;
-    private CompetitionOrganizer competitionOrganizer;
+    private String competitionOrganizer;
     private int events;
 
     private Date createdAt;

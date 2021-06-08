@@ -13,14 +13,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Coach Management System</title>
+    <title>Competition Management System</title>
     <link  th:href="@{/css/style.css}" rel="stylesheet">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <div class="updateText">COACH MANAGEMENT SYSTEM</div>
+    <div class="updateText">COMPETITION MANAGEMENT SYSTEM</div>
     <hr>
 
 <div class="updateForm">
@@ -41,7 +41,7 @@
         <label>Competition Organizer</label>
         <select th:field="*{competitionOrganizer}">
             <option th:each="sa : ${competition}" th:value="${competition}" th:text="${competition}" />
-        </select>
+        </select><br><br>
         <label>&emsp;&emsp;&emsp;Events</label>
         <input type="number" th:field="*{events}" placeholder="events" required>
 

@@ -50,8 +50,7 @@ public class CompetitionUiController {
        List<SportClub> sportClubs = sportClubService.getAll();/*.stream().map(SportClub::getName)
                 .collect(Collectors.toList());*/
         model.addAttribute("sportClubs", sportClubs);
-        List<CompetitionOrganizer> organizers = Arrays.asList(CompetitionOrganizer.values());
-        model.addAttribute("organizer", organizers);
+
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
         List<Building> buildings = serviceB.getAll();
@@ -62,8 +61,7 @@ public class CompetitionUiController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Competition competition = service.getById(id);
         model.addAttribute("competition",competition);
-        List<CompetitionOrganizer> organizers = Arrays.asList(CompetitionOrganizer.values());
-        model.addAttribute("organizer", organizers);
+
         List<Sport> sports = Arrays.asList(Sport.values());
         model.addAttribute("sport", sports);
         List<Building> buildings = serviceB.getAll();
@@ -88,7 +86,7 @@ public class CompetitionUiController {
 
         // call delete employee method
         this.service.delete(id);
-        return "redirect:/ui/competitions/get/all";
+        return "redirect:/ui/сompetitions/get/all";
     }
 }
 

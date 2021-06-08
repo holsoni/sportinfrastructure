@@ -31,7 +31,7 @@
     </div>
 <div class="addForm">
 
-    <form action="#" th:action="@{/ui/competitions/add}" th:object="${competition}"
+    <form action="#" th:action="@{/ui/сompetitions/add}" th:object="${competition}"
           method="POST">
         <!--<label>ID</label>
         <input type="text" th:field="*{id}" placeholder=" ID" required >-->
@@ -46,9 +46,8 @@
             <option th:each="s : ${buildings}" th:value="${s.id}" th:text="${s.name}" />
         </select>
         <label>Competition Organizer</label>
-        <select th:field="*{competitionOrganizer}">
-            <option th:each="org: ${organizer}" th:value="${organizer}" th:text="${organizer}" />
-        </select><br>
+        <input type="text" th:field="*{competitionOrganizer}" placeholder="Organizer" required>
+        <br><br>
         <label>&emsp;&emsp;&emsp;Events</label>
         <input type="number" th:field="*{events}" placeholder="events" required>
 
