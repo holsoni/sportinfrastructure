@@ -31,7 +31,7 @@ public class HomeUiController {
     @RequestMapping("/about")
     public String about(){
 
-        return "/title";
+        return "title";
     }
 
 
